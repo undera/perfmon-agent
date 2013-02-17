@@ -28,8 +28,7 @@ public class MetricParamsTest extends TestCase {
      */
     public void testCreateFromString_ptql() {
         System.out.println("createFromString");
-        String metricParams = "ptql=Exe.Name.ct=java,Args.*.ct=junit";
-        String defaultType = "";
+        String metricParams = "ptql=Pid.Pid.gt=1";
         final SigarProxy sigar = SigarProxyCache.newInstance(new Sigar(), 500);
         MetricParamsSigar result = MetricParamsSigar.createFromString(metricParams, sigar);
         assertTrue(result.PID > 0);
