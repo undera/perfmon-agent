@@ -29,7 +29,7 @@ import org.hyperic.sigar.SigarProxyCache;
  */
 public class PerfMonWorker implements Runnable {
 
-    private static String version = "2.1.2";
+    private static String version = "2.2.0"; // TODO: keep in sync automatically
     private static final Logger log = LoggingManager.getLoggerForClass();
     private int tcpPort = 4444;
     private int udpPort = 4444;
@@ -127,8 +127,8 @@ public class PerfMonWorker implements Runnable {
             log.error("Can't accept TCP connections", ex);
         }
 
-        if(started) {
-           log.info("JP@GC Agent v" + version + " started");
+        if (started) {
+            log.info("JP@GC Agent v" + version + " started");
         }
     }
 
