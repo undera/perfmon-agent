@@ -4,7 +4,7 @@
 
     <groupId>kg.apc</groupId>
     <artifactId>perfmon</artifactId>
-    <version>2.2.0</version>
+    <version>2.2.1</version>
     <packaging>jar</packaging>
 
     <name>PerfMon Server Agent</name>
@@ -76,6 +76,12 @@
             <groupId>org.apache.jmeter</groupId>
             <artifactId>jorphan</artifactId>
             <version>2.6</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.2</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

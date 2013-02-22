@@ -6,16 +6,6 @@
         <format>zip</format>
     </formats>
     
-    <moduleSets>
-        <moduleSet>
-            <binaries>
-                <includes>
-                    <include>kg.apc*</include>
-                </includes>
-            </binaries>
-        </moduleSet>
-    </moduleSets>
-    
     <files>
         <file>
             <destName>ServerAgent.jar</destName>
@@ -24,6 +14,9 @@
         <file>
             <destName>CMDRunner.jar</destName>
             <source>${project.build.directory}/lib/cmdrunner-${cmdrunner-version}.jar</source>
+        </file>
+        <file>
+            <source>LICENSE</source>
         </file>
     </files>
     
