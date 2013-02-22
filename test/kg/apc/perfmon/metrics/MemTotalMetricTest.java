@@ -1,6 +1,8 @@
 package kg.apc.perfmon.metrics;
 
+import junit.framework.Test;
 import junit.framework.TestCase;
+import junit.framework.TestSuite;
 import org.hyperic.sigar.Sigar;
 import org.hyperic.sigar.SigarProxy;
 import org.hyperic.sigar.SigarProxyCache;
@@ -13,6 +15,11 @@ public class MemTotalMetricTest extends TestCase {
 
     public MemTotalMetricTest(String testName) {
         super(testName);
+    }
+
+    public static Test suite() {
+        TestSuite suite = new TestSuite(MemTotalMetricTest.class);
+        return suite;
     }
 
     protected void setUp() throws Exception {

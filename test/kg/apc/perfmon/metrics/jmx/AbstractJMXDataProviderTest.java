@@ -121,4 +121,25 @@ public class AbstractJMXDataProviderTest extends TestCase {
             return 0L;
         }
     }
+
+    /**
+     * Test of getValue method, of class AbstractJMXDataProvider.
+     */
+    public void testGetValue_StringBuffer() throws Exception {
+        System.out.println("getValue");
+        StringBuffer res = new StringBuffer();
+        AbstractJMXDataProvider instance = new AbstractJMXDataProviderImpl();
+        instance.getValue(res);
+    }
+
+    /**
+     * Test of getValue method, of class AbstractJMXDataProvider.
+     */
+    public void testGetValue_StringBuffer_int() throws Exception {
+        System.out.println("getValue");
+        StringBuffer res = new StringBuffer();
+        int divider = 1;
+        AbstractJMXDataProvider instance = new AbstractJMXDataProviderImpl();
+        instance.getValue(res, divider);
+    }
 }

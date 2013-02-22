@@ -1,6 +1,11 @@
 package kg.apc.perfmon.metrics;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.StringTokenizer;
+import junit.framework.Test;
 import junit.framework.TestCase;
+import junit.framework.TestSuite;
 import org.hyperic.sigar.Sigar;
 import org.hyperic.sigar.SigarProxy;
 import org.hyperic.sigar.SigarProxyCache;
@@ -13,6 +18,11 @@ public class MetricParamsTest extends TestCase {
 
     public MetricParamsTest(String testName) {
         super(testName);
+    }
+
+    public static Test suite() {
+        TestSuite suite = new TestSuite(MetricParamsTest.class);
+        return suite;
     }
 
     protected void setUp() throws Exception {
@@ -83,5 +93,82 @@ public class MetricParamsTest extends TestCase {
         System.out.println("logAvailableProcesses");
         final SigarProxy sigar = SigarProxyCache.newInstance(new Sigar(), 500);
         MetricParamsSigar.logAvailableProcesses(sigar);
+    }
+
+    /**
+     * Test of parseParams method, of class MetricParams.
+     */
+    public void testParseParams() {
+        System.out.println("parseParams");
+        String metricParams = "";
+        MetricParams inst = MetricParams.createFromString(metricParams);
+        MetricParams.parseParams(metricParams, inst);
+    }
+
+    /**
+     * Test of populateParams method, of class MetricParams.
+     */
+    public void testPopulateParams() {
+        System.out.println("populateParams");
+        String token = "";
+        List params = new LinkedList();
+        MetricParams instance = new MetricParams();
+        instance.populateParams(token, params);
+    }
+
+    /**
+     * Test of tokenizeString method, of class MetricParams.
+     */
+    public void testTokenizeString() {
+        System.out.println("tokenizeString");
+        String metricParams = "";
+        StringTokenizer result = MetricParams.tokenizeString(metricParams);
+        assertEquals(0, result.countTokens());
+    }
+
+    /**
+     * Test of join method, of class MetricParams.
+     */
+    public void testJoin() {
+        System.out.println("join");
+        StringBuffer buff = new StringBuffer();
+        Object[] array = {"a", "b"};
+        String delim = "";
+        String expResult = "ab";
+        String result = MetricParams.join(buff, array, delim);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getLabel method, of class MetricParams.
+     */
+    public void testGetLabel() {
+        System.out.println("getLabel");
+        MetricParams instance = new MetricParams();
+        String expResult = "";
+        String result = instance.getLabel();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getUnit method, of class MetricParams.
+     */
+    public void testGetUnit() {
+        System.out.println("getUnit");
+        MetricParams instance = new MetricParams();
+        String expResult = "";
+        String result = instance.getUnit();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getParamValue method, of class MetricParams.
+     */
+    public void testGetParamValue() {
+        System.out.println("getParamValue");
+        String token = "";
+        String expResult = "";
+        String result = MetricParams.getParamValue(token);
+        assertEquals(expResult, result);
     }
 }

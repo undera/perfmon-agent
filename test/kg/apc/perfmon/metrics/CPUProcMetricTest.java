@@ -1,6 +1,8 @@
 package kg.apc.perfmon.metrics;
 
+import junit.framework.Test;
 import junit.framework.TestCase;
+import junit.framework.TestSuite;
 import org.hyperic.sigar.Sigar;
 import org.hyperic.sigar.SigarProxy;
 import org.hyperic.sigar.SigarProxyCache;
@@ -12,6 +14,19 @@ import org.hyperic.sigar.SigarProxyCache;
 public class CPUProcMetricTest extends TestCase {
 
     public CPUProcMetricTest() {
+    }
+
+    protected void setUp() throws Exception {
+        super.setUp();
+    }
+
+    protected void tearDown() throws Exception {
+        super.tearDown();
+    }
+
+    public static Test suite() {
+        TestSuite suite = new TestSuite(CPUProcMetricTest.class);
+        return suite;
     }
 
     /**
