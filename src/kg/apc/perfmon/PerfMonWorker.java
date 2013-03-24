@@ -16,6 +16,7 @@ import java.nio.channels.WritableByteChannel;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Properties;
 import kg.apc.perfmon.metrics.SysInfoLogger;
 import org.apache.jorphan.logging.LoggingManager;
 import org.apache.log.Logger;
@@ -29,7 +30,6 @@ import org.hyperic.sigar.SigarProxyCache;
  */
 public class PerfMonWorker implements Runnable {
 
-    private static String version = "2.2.0"; // TODO: keep in sync automatically
     private static final Logger log = LoggingManager.getLoggerForClass();
     private int tcpPort = 4444;
     private int udpPort = 4444;
@@ -128,7 +128,7 @@ public class PerfMonWorker implements Runnable {
         }
 
         if (started) {
-            log.info("JP@GC Agent v" + version + " started");
+            log.info("JP@GC Agent v" + getVersion() + " started");
         }
     }
 
@@ -325,7 +325,7 @@ public class PerfMonWorker implements Runnable {
     }
 
     public void logVersion() {
-        log.info("JMeter Plugins Agent v" + version);
+        log.info("JMeter Plugins Agent v" + getVersion());
     }
 
     public void logSysInfo() {
@@ -364,5 +364,16 @@ public class PerfMonWorker implements Runnable {
         } else {
             ((SocketChannel) channel).write(buf);
         }
+    }
+
+    private String getVersion() {
+        Properties props = new Properties();
+        try {
+            props.load(getClass().getResourceAsStream("/kg/apc/perfmon/version.properties"));
+        } catch (IOException ex) {
+            log.warn("Can't get version info", ex);
+            props.setProperty("version", "N/A");
+        }
+        return props.getProperty("version");
     }
 }
