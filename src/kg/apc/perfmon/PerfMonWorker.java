@@ -369,7 +369,7 @@ public class PerfMonWorker implements Runnable {
     private String getVersion() {
         Properties props = new Properties();
         try {
-            props.load(getClass().getResourceAsStream("/kg/apc/perfmon/version.properties"));
+            props.load(getClass().getResourceAsStream("version.properties"));
         } catch (IOException ex) {
             log.warn("Can't get version info", ex);
             props.setProperty("version", "N/A");
