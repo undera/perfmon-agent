@@ -3,7 +3,7 @@ package kg.apc.perfmon.metrics;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import org.hyperic.sigar.SigarEmul;
+import org.hyperic.sigar.SigarProxyEmul;
 import org.hyperic.sigar.SigarProxy;
 
 /**
@@ -34,7 +34,7 @@ public class TCPStatMetricTest extends TestCase {
      */
     public void testGetValue() throws Exception {
         System.out.println("getValue");
-        SigarProxy sigar = new SigarEmul();
+        SigarProxy sigar = new SigarProxyEmul();
         for (int n = 0; n < TCPStatMetric.types.length; n++) {
             TCPStatMetric instance = new TCPStatMetric(sigar, MetricParams.createFromString(TCPStatMetric.types[n]));
             StringBuffer res = new StringBuffer();

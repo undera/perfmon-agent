@@ -3,7 +3,7 @@ package kg.apc.perfmon.metrics;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import org.hyperic.sigar.SigarEmul;
+import org.hyperic.sigar.SigarProxyEmul;
 import org.hyperic.sigar.Sigar;
 import org.hyperic.sigar.SigarProxy;
 import org.hyperic.sigar.SigarProxyCache;
@@ -48,7 +48,7 @@ public class DiskIOMetricTest extends TestCase {
     public void testGetValue_concrete() throws Exception {
         System.out.println("getValue_c");
         StringBuffer res = new StringBuffer();
-        SigarProxy sigar = new SigarEmul();
+        SigarProxy sigar = new SigarProxyEmul();
         DiskIOMetric instance = new DiskIOMetric(sigar, MetricParamsSigar.createFromString("fs=/", sigar));
         instance.getValue(res);
         assertTrue(res.toString().length() != 0);

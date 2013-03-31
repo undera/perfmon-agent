@@ -18,7 +18,7 @@ package kg.apc.perfmon.metrics;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import org.hyperic.sigar.SigarEmul;
+import org.hyperic.sigar.SigarProxyEmul;
 import org.hyperic.sigar.Sigar;
 import org.hyperic.sigar.SigarProxy;
 import org.hyperic.sigar.SigarProxyCache;
@@ -52,7 +52,7 @@ public class SwapMetricTest extends TestCase {
     public void testGetValue() throws Exception {
         System.out.println("getValue");
         StringBuffer res = new StringBuffer();
-        SigarProxy sigar = new SigarEmul();
+        SigarProxy sigar = new SigarProxyEmul();
         SwapMetric instance = new SwapMetric(sigar, new MetricParamsSigar(sigar));
         instance.getValue(res);
     }

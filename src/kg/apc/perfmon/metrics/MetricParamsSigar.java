@@ -64,7 +64,8 @@ class MetricParamsSigar extends MetricParams {
     private long getPIDByPTQL(String token) {
         String query = token.substring(token.indexOf("=") + 1);
         try {
-            long[] pids = new ProcessFinder(sigar).find(query);
+            final ProcessFinder finder = new ProcessFinder(sigar);
+            long[] pids = finder.find(query);
             if (pids.length < 1) {
                 log.warn("Unable to find process from query: " + query);
                 return -1;

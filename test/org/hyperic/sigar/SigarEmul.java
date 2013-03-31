@@ -23,10 +23,7 @@ import java.util.Random;
  *
  * @author undera
  */
-public class SigarEmul implements SigarProxy {
-
-    public SigarEmul() {
-    }
+public class SigarEmul extends Sigar {
 
     public long getPid() {
         return new Random().nextLong();
