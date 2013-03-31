@@ -6,6 +6,7 @@ import java.util.StringTokenizer;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import org.hyperic.sigar.SigarEmul;
 import org.hyperic.sigar.Sigar;
 import org.hyperic.sigar.SigarProxy;
 import org.hyperic.sigar.SigarProxyCache;
@@ -39,14 +40,14 @@ public class MetricParamsTest extends TestCase {
     public void testCreateFromString_ptql() {
         System.out.println("createFromString");
         String metricParams = "ptql=Pid.Pid.gt=1";
-        final SigarProxy sigar = SigarProxyCache.newInstance(new Sigar(), 500);
+        final SigarProxy sigar = new SigarEmul();
         MetricParamsSigar result = MetricParamsSigar.createFromString(metricParams, sigar);
         assertTrue(result.PID > 0);
     }
 
     public void testCreateFromString_name() {
         System.out.println("createFromString");
-        final SigarProxy sigar = SigarProxyCache.newInstance(new Sigar(), 500);
+        final SigarProxy sigar = new SigarEmul();
         MetricParamsSigar resultLinux = MetricParamsSigar.createFromString("name=java#1", sigar);
         MetricParamsSigar resultWin = MetricParamsSigar.createFromString("name=java.exe#1", sigar);
         assertTrue(resultLinux.PID > 0 || resultWin.PID > 0);
@@ -80,7 +81,7 @@ public class MetricParamsTest extends TestCase {
 
     public void testCreateFromString() {
         System.out.println("createFromString");
-        final SigarProxy sigar = SigarProxyCache.newInstance(new Sigar(), 500);
+        final SigarProxy sigar = new SigarEmul();
         String metricParams = "pid=" + sigar.getPid();
         MetricParamsSigar result = MetricParamsSigar.createFromString(metricParams, sigar);
         assertTrue(result.PID > 0);

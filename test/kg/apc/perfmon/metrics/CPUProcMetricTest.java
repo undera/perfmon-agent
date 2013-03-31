@@ -1,5 +1,6 @@
 package kg.apc.perfmon.metrics;
 
+import org.hyperic.sigar.SigarEmul;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -35,7 +36,7 @@ public class CPUProcMetricTest extends TestCase {
     public void testGetValue() throws Exception {
         System.out.println("getValue");
         StringBuffer res = new StringBuffer();
-        final SigarProxy sigar = SigarProxyCache.newInstance(new Sigar(), 500);
+        final SigarProxy sigar = new SigarEmul();
         MetricParamsSigar params = MetricParamsSigar.createFromString("pid=" + sigar.getPid(), sigar);
         CPUProcMetric instance = new CPUProcMetric(sigar, params);
         instance.getValue(res);
@@ -44,7 +45,7 @@ public class CPUProcMetricTest extends TestCase {
 
     public void testGetValue_all() throws Exception {
         System.out.println("getValue");
-        SigarProxy sigar = SigarProxyCache.newInstance(new Sigar(), 500);
+        SigarProxy sigar = new SigarEmul();
         for (int n = 0; n < CPUProcMetric.types.length; n++) {
             MetricParamsSigar params = MetricParamsSigar.createFromString("pid=" + sigar.getPid() + ":" + CPUProcMetric.types[n], sigar);
             CPUProcMetric instance = new CPUProcMetric(sigar, params);

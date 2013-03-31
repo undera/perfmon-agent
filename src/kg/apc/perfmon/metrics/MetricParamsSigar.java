@@ -48,7 +48,7 @@ class MetricParamsSigar extends MetricParams {
             long index = parts.length > 1 ? Long.parseLong(parts[1]) : 0;
             PID = getPIDByProcName(parts[0], index);
             if (PID <= 0) {
-                log.warn("Enable to find process from name: " + name);
+                log.warn("Unable to find process from name: " + name);
             }
         } catch (ArrayIndexOutOfBoundsException e) {
             log.warn("Error processing token: " + token, e);
