@@ -17,9 +17,6 @@ public class PerfMonMetricGetterTest extends TestCase {
     public PerfMonMetricGetterTest() {
     }
 
-    /**
-     * Test of processCommand method, of class PerfMonMetricGetter.
-     */
     public void testProcessCommand() throws IOException {
         System.out.println("processCommand");
         String toString = "test\ntest\nerr\n";
@@ -38,9 +35,6 @@ public class PerfMonMetricGetterTest extends TestCase {
         }
     }
 
-    /**
-     * Test of addCommandString method, of class PerfMonMetricGetter.
-     */
     public void testAddCommandString() throws IOException {
         System.out.println("addCommandString");
         String byteBufferToString = "";
@@ -48,9 +42,6 @@ public class PerfMonMetricGetterTest extends TestCase {
         instance.addCommandString(byteBufferToString);
     }
 
-    /**
-     * Test of processNextCommand method, of class PerfMonMetricGetter.
-     */
     public void testProcessNextCommand() throws Exception {
         System.out.println("processNextCommand");
         PerfMonMetricGetter instance = new PerfMonMetricGetter(SigarProxyCache.newInstance(new Sigar(), 500), new PerfMonWorker(), DatagramChannel.open());
@@ -59,9 +50,6 @@ public class PerfMonMetricGetterTest extends TestCase {
         assertEquals(expResult, result);
     }
 
-    /**
-     * Test of sendMetrics method, of class PerfMonMetricGetter.
-     */
     public void testSendMetrics() throws IOException {
         System.out.println("sendMetrics");
         PerfMonMetricGetter instance = new PerfMonMetricGetter(SigarProxyCache.newInstance(new Sigar(), 500), new PerfMonWorker(), DatagramChannel.open());
@@ -77,6 +65,18 @@ public class PerfMonMetricGetterTest extends TestCase {
         channel.connect(inetSocketAddress);
         PerfMonMetricGetter instance = new PerfMonMetricGetter(SigarProxyCache.newInstance(new Sigar(), 500), new PerfMonWorker(), channel, inetSocketAddress);
         instance.addCommandString(toString);
+        instance.processNextCommand();
+    }
+
+    public void testProcessCommand_udp_transmitter() throws IOException {
+        System.out.println("UDP transmitter");
+        String cmd = "udp-transmitter:localhost:3333:cpu\tmemory\ttcp\n";
+        final DatagramChannel channel = DatagramChannelEmul.open();
+        channel.configureBlocking(false);
+        final InetSocketAddress inetSocketAddress = new InetSocketAddress("localhost", 4444);
+        channel.connect(inetSocketAddress);
+        PerfMonMetricGetter instance = new PerfMonMetricGetter(SigarProxyCache.newInstance(new Sigar(), 500), new PerfMonWorker(), channel, inetSocketAddress);
+        instance.addCommandString(cmd);
         instance.processNextCommand();
     }
 }

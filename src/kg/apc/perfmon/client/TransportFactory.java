@@ -53,7 +53,7 @@ public class TransportFactory {
     /**
      * @deprecated because of instability
      * @param addr 
-     * @return
+     * @return transport instance
      * @throws IOException 
      */
     public static Transport NIOUDPInstance(SocketAddress addr) throws IOException {
@@ -68,7 +68,7 @@ public class TransportFactory {
     /**
      * @deprecated because of instability
      * @param addr
-     * @return
+     * @return transport instance
      * @throws IOException 
      */
     public static Transport NIOTCPInstance(SocketAddress addr) throws IOException {

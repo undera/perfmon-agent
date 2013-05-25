@@ -194,9 +194,7 @@ public class PerfMonWorker implements Runnable {
 
             synchronized (udpConnections) {
                 if (!udpConnections.containsKey(remoteAddr)) {
-                    log.info("Connecting new UDP client");
-                    numConnections++;
-                    udpConnections.put(remoteAddr, new PerfMonMetricGetter(sigar, this, channel, remoteAddr));
+                    connectUDPClient(remoteAddr, channel, new PerfMonMetricGetter(sigar, this, channel, remoteAddr));
                 }
                 getter = (PerfMonMetricGetter) udpConnections.get(remoteAddr);
             }
@@ -254,9 +252,9 @@ public class PerfMonWorker implements Runnable {
     }
 
     private void processSenders() throws IOException {
-        //log.debug("Selecting senders");
+        //log.debug("Selecting senders from " + sendSelector.keys().size());
         sendSelector.select(getInterval());
-        //log.debug("Selected senders");
+        //log.debug("Selected senders " + this.sendSelector.selectedKeys().size());
 
         long begin = System.currentTimeMillis();
 
@@ -282,7 +280,7 @@ public class PerfMonWorker implements Runnable {
 
                     }
                 } catch (IOException e) {
-                    log.error("Cannot send data to TCP network connection", e);
+                    log.error("Cannot send data to network connection", e);
                     notifyDisonnected();
                     key.cancel();
                 }
@@ -375,5 +373,13 @@ public class PerfMonWorker implements Runnable {
             props.setProperty("version", "N/A");
         }
         return props.getProperty("version");
+    }
+
+    protected void connectUDPClient(SocketAddress remoteAddr, DatagramChannel channel, PerfMonMetricGetter getter) throws IOException {
+        log.info("Connecting new UDP client");
+        synchronized (udpConnections) {
+            numConnections++;
+            udpConnections.put(remoteAddr, getter);
+        }
     }
 }

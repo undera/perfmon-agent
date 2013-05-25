@@ -1,8 +1,6 @@
 package kg.apc.perfmon;
 
 import java.io.IOException;
-import java.nio.channels.DatagramChannel;
-import java.nio.channels.SelectableChannel;
 import junit.framework.TestCase;
 
 /**

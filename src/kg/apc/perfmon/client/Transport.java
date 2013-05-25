@@ -17,7 +17,7 @@ public interface Transport {
     /**
      * Method to be used after startWithMetrics
      * Returns array containing collected metric values
-     * @return 
+     * @return metric values
      */
     public String[] readMetrics();
 
@@ -47,7 +47,7 @@ public interface Transport {
 
     /**
      * Method to test if transport connection established with applicable server agent
-     * @return 
+     * @return success
      */
     public boolean test();
 
@@ -60,7 +60,7 @@ public interface Transport {
 
     /**
      * Returns address string if one was set by setAddressLabel
-     * @return 
+     * @return address string
      */
     public String getAddressLabel();
 

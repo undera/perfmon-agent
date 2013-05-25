@@ -1,8 +1,10 @@
 package kg.apc.perfmon;
 
 import java.io.IOException;
+import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 import java.nio.ByteBuffer;
+import java.nio.channels.ClosedChannelException;
 import java.nio.channels.DatagramChannel;
 import java.nio.channels.SelectableChannel;
 import java.nio.channels.SocketChannel;
@@ -59,7 +61,7 @@ public class PerfMonMetricGetter {
             ByteBuffer buf = getMetricsLine();
             controller.sendToClient(channel, buf);
         } else if (cmdType.equals("metrics")) {
-            log.info("Starting measures: "+params);
+            log.info("Starting measures: " + params);
             setUpMetrics(params.split(TAB));
             // this will make it sending channel
             controller.registerWritingChannel(channel, this);
@@ -82,6 +84,8 @@ public class PerfMonMetricGetter {
             } else {
                 ((WritableByteChannel) channel).write(ByteBuffer.wrap("Yep\n".getBytes()));
             }
+        } else if (cmdType.equals("udp-transmitter")) {
+            setUpTransmitter(params);
         } else if (cmdType.equals("")) {
         } else {
             throw new UnsupportedOperationException("Unknown command [" + cmdType.length() + "]: '" + cmdType + "'");
@@ -142,5 +146,29 @@ public class PerfMonMetricGetter {
 
     public boolean isStarted() {
         return metrics.length > 0;
+    }
+
+    // FIXME: some kind of tokenizer would go better
+    private void setUpTransmitter(String params) throws IOException {
+        log.info("Starting UDP transmitter for: " + params);
+        if (params.indexOf(DVOETOCHIE) < 0) {
+            throw new IllegalArgumentException("Wrong syntax for udp-transmitter command: " + params);
+        }
+        String transmitToAddr = params.substring(0, params.indexOf(DVOETOCHIE)).trim();
+        params = params.substring(params.indexOf(DVOETOCHIE) + 1).trim();
+
+        if (params.indexOf(DVOETOCHIE) < 0) {
+            throw new IllegalArgumentException("Wrong syntax for udp-transmitter command: " + params);
+        }
+        int transmitToPort = Integer.parseInt(params.substring(0, params.indexOf(DVOETOCHIE)).trim());
+        params = params.substring(params.indexOf(DVOETOCHIE) + 1).trim();
+
+        setUpMetrics(params.split(TAB));
+        DatagramChannel transmitter = DatagramChannel.open();
+        SocketAddress addr = new InetSocketAddress(transmitToAddr, transmitToPort);
+        transmitter.connect(addr);
+        transmitter.configureBlocking(false);
+        controller.registerWritingChannel(transmitter, this);
+        controller.connectUDPClient(addr, transmitter, this);
     }
 }

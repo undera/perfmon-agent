@@ -79,7 +79,7 @@ public abstract class AbstractTransport implements Transport {
     /**
      * Method retrieves next line from received bytes sequence
      * @param newlineCount
-     * @return
+     * @return next command line
      * @throws IOException 
      */
     protected String getNextLine(int newlineCount) throws IOException {
