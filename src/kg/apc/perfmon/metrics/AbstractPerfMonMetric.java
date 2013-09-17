@@ -43,29 +43,10 @@ public abstract class AbstractPerfMonMetric {
         }
 
         MetricParamsSigar metricParams = MetricParamsSigar.createFromString(metricParamsStr, sigarProxy);
-
+        PerfMonMetricsService service = PerfMonMetricsService.getInstance();
+        
         try {
-            if (metricType.equalsIgnoreCase("exec")) {
-                metric = new ExecMetric(metricParams);
-            } else if (metricType.equalsIgnoreCase("tail")) {
-                metric = new TailMetric(metricParams);
-            } else if (metricType.equalsIgnoreCase("cpu")) {
-                metric = AbstractCPUMetric.getMetric(sigarProxy, metricParams);
-            } else if (metricType.equalsIgnoreCase("memory")) {
-                metric = AbstractMemMetric.getMetric(sigarProxy, metricParams);
-            } else if (metricType.equalsIgnoreCase("swap")) {
-                metric = new SwapMetric(sigarProxy, metricParams);
-            } else if (metricType.equalsIgnoreCase("disks")) {
-                metric = new DiskIOMetric(sigarProxy, metricParams);
-            } else if (metricType.equalsIgnoreCase("network")) {
-                metric = new NetworkIOMetric(sigarProxy, metricParams);
-            } else if (metricType.equalsIgnoreCase("tcp")) {
-                metric = new TCPStatMetric(sigarProxy, metricParams);
-            } else if (metricType.equalsIgnoreCase("jmx")) {
-                metric = new JMXMetric(metricParams, new JMXConnectorHelper());
-            } else {
-                throw new RuntimeException("No collector object for metric type " + metricType);
-            }
+        	metric = service.getMetric(metricType, metricParams, sigarProxy);
         } catch (IllegalArgumentException ex) {
             log.error(ex.toString());
             log.error("Invalid parameters specified for metric " + metricType + ": " + metricParams);
