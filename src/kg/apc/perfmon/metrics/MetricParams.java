@@ -14,14 +14,14 @@ public class MetricParams {
 
     private static final Logger log = LoggingManager.getLoggerForClass();
 
-    String label = "";
-    long PID = -1;
-    int coreID = -1;
-    String fs = "";
-    String iface = "";
-    String[] params = new String[0];
-    String type = "";
-    String unit = "";
+    protected String label = "";
+    protected long PID = -1;
+    protected int coreID = -1;
+    protected String fs = "";
+    protected String iface = "";
+    protected String[] params = new String[0];
+    protected String type = "";
+    protected String unit = "";
     
     protected static void parseParams(String metricParams, MetricParams inst) throws NumberFormatException {
        //for split, avoid ':' preceeded with '\', ie do not process "\:"
