@@ -8,7 +8,7 @@ import org.hyperic.sigar.SigarProxy;
 public class PerfMonMetricsService {
 	
 	private static PerfMonMetricsService service;
-	private ServiceLoader<PerfMonMetricsCreator> loader;
+	private ServiceLoader loader;
 	
 	private PerfMonMetricsService() {
 		loader = ServiceLoader.load(PerfMonMetricsCreator.class);
@@ -21,12 +21,12 @@ public class PerfMonMetricsService {
 		return service;
 	}
 	
-	public AbstractPerfMonMetric getMetric(String metricType, MetricParamsSigar metricParams, SigarProxy sigarProxy) throws IllegalArgumentException, RuntimeException {
+	public AbstractPerfMonMetric getMetric(String metricType, MetricParamsSigar metricParams, SigarProxy sigarProxy) throws IllegalArgumentException, RuntimeException {		
 		AbstractPerfMonMetric metric = null;
 
-		Iterator<PerfMonMetricsCreator> mCreators = loader.iterator();
+		Iterator mCreators = loader.iterator();
 		while (metric == null && mCreators.hasNext()) {
-			PerfMonMetricsCreator mCreator = mCreators.next();
+			PerfMonMetricsCreator mCreator = (PerfMonMetricsCreator) mCreators.next();
 			metric = mCreator.getMetricProvider(metricType, metricParams, sigarProxy);
 		}
 		

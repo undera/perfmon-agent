@@ -1,19 +1,44 @@
 package kg.apc.perfmon;
 
+import static org.powermock.api.mockito.PowerMockito.mock;
+import static org.powermock.api.mockito.PowerMockito.stub;
+import static org.powermock.api.mockito.PowerMockito.when;
+
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.channels.DatagramChannel;
+import java.util.Iterator;
+import java.util.ServiceLoader;
+
 import junit.framework.TestCase;
 import kg.apc.emulators.DatagramChannelEmul;
+import kg.apc.perfmon.metrics.PerfMonMetricsCreatorImpl;
+import kg.apc.perfmon.metrics.PerfMonMetricsService;
+
 import org.hyperic.sigar.Sigar;
 import org.hyperic.sigar.SigarProxyCache;
+import org.junit.Before;
+import org.junit.runner.RunWith;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
 
 /**
  *
  * @author undera
  */
+@RunWith(PowerMockRunner.class)
+@PrepareForTest(PerfMonMetricsService.class)
 public class PerfMonMetricGetterTest extends TestCase {
 
+	@Before
+	public void initTests() {
+		Iterator mockIterator = mock(Iterator.class);
+		stub(PowerMockito.method(ServiceLoader.class, "iterator")).toReturn(mockIterator);
+		when(mockIterator.hasNext()).thenReturn(true);
+		when(mockIterator.next()).thenReturn(new PerfMonMetricsCreatorImpl());
+	}
+	
     public PerfMonMetricGetterTest() {
     }
 
