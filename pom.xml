@@ -41,23 +41,10 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java-version>1.5</java-version>
+        <java-version>1.4</java-version>
         <cmdrunner-version>1.0.1</cmdrunner-version>
-	    <powermock.version>1.5.1</powermock.version>
 	</properties>
 	<dependencies>
-	    <dependency>
-	        <groupId>org.powermock</groupId>
-	        <artifactId>powermock-module-junit4</artifactId>
-	        <version>${powermock.version}</version>
-	        <scope>test</scope>
-	    </dependency>
-	    <dependency>
-	        <groupId>org.powermock</groupId>
-	        <artifactId>powermock-api-mockito</artifactId>
-	        <version>${powermock.version}</version>
-	        <scope>test</scope>
-	    </dependency>
         <dependency>
             <groupId>kg.apc</groupId>
             <artifactId>cmdrunner</artifactId>
@@ -87,6 +74,12 @@
             <artifactId>jorphan</artifactId>
             <version>2.6</version>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.2</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -101,6 +94,9 @@
                 <directory>src</directory>
                 <filtering>true</filtering>
             </resource>
+            <resource>
+                <directory>src/resources</directory>
+            </resource>
         </resources>
         <testResources>
             <testResource>
@@ -108,6 +104,9 @@
                     <include>**/*.properties</include>
                 </includes>
                 <directory>test</directory>
+            </testResource>
+            <testResource>
+                <directory>src/resources</directory>
             </testResource>
         </testResources>
         <plugins>
