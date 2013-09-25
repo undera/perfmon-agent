@@ -1,6 +1,9 @@
 package kg.apc.perfmon.metrics;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 import java.util.ServiceLoader;
 
 import org.apache.jorphan.logging.LoggingManager;
@@ -12,6 +15,8 @@ public class PerfMonMetricsService {
 	private static final Logger log = LoggingManager.getLoggerForClass();
 	private static PerfMonMetricsService service;
 	private ServiceLoader loader;
+	private List metricExceptions = new ArrayList();
+	private List triedClasses = new ArrayList();
 	
 	private PerfMonMetricsService() {
 		loader = ServiceLoader.load(PerfMonMetricsCreator.class);
@@ -35,13 +40,19 @@ public class PerfMonMetricsService {
 			} catch (Exception e) {
 				log.debug("Error when getting metrics from: "+mCreator.getClass());
 				log.debug(e.getMessage());
+				triedClasses.add(mCreator.getClass());
+				metricExceptions.add(e);
 				metric = null;
 			}
 		}
 		
 		if (metric == null) {
 			metric = new InvalidPerfMonMetric();
-			throw new RuntimeException();
+			log.error("Couldn't get metrics from: "+ Arrays.toString(triedClasses.toArray()));
+			for (int i = 0; i < metricExceptions.size(); i++) {
+				log.error(((Exception) metricExceptions.get(i)).getMessage());
+			}
+			throw new RuntimeException("Couldn't get metrics from: "+ Arrays.toString(triedClasses.toArray()));
 		}
 		
 		return metric;

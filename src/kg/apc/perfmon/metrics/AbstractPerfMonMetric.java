@@ -48,12 +48,14 @@ public abstract class AbstractPerfMonMetric {
         try {
         	metric = service.getMetric(metricType, metricParams, sigarProxy);
         } catch (IllegalArgumentException ex) {
-            log.error(ex.toString());
-            log.error("Invalid parameters specified for metric " + metricType + ": " + metricParams);
+            log.debug(ex.toString());
+            log.debug("Invalid parameters specified for metric " + metricType + ": " + metricParams);
             metric = new InvalidPerfMonMetric();
+            throw new IllegalArgumentException("Invalid parameters specified for metric " + metricType + ": " + metricParams, ex);
         } catch (RuntimeException ex) {
-            log.error("Invalid metric specified: " + metricType, ex);
+            log.debug("Invalid metric specified: " + metricType, ex);
             metric = new InvalidPerfMonMetric();
+            throw new RuntimeException("Invalid metric specified: " + metricType, ex);
         }
 
         log.debug("Have metric object: " + metric.toString());
