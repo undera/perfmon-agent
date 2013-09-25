@@ -7,7 +7,7 @@ import org.apache.log.Logger;
  *
  * @author undera
  */
-class InvalidPerfMonMetric extends AbstractPerfMonMetric {
+public class InvalidPerfMonMetric extends AbstractPerfMonMetric {
 
     private static final Logger log = LoggingManager.getLoggerForClass();
 

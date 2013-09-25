@@ -41,7 +41,7 @@ public class JMXMetric extends AbstractPerfMonMetric {
         try {
             dataProvider = AbstractJMXDataProvider.getProvider(mBeanServerConn, params.type);
         } catch (Exception ex) {
-            log.error("Failed to get MX Bean data provider", ex);
+            log.debug("Failed to get MX Bean data provider", ex);
             throw new RuntimeException("Failed to get MX Bean data provider", ex);
         }
 

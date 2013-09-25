@@ -87,6 +87,14 @@ public class MetricParams {
         return label;
     }
     
+    public String[] getParams() {
+    	return params;
+    }
+    
+    public String getType() {
+    	return type;
+    }
+    
     public String getUnit() {
         return unit;
     }

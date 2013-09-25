@@ -19,9 +19,7 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import org.hyperic.sigar.SigarProxyEmul;
-import org.hyperic.sigar.Sigar;
 import org.hyperic.sigar.SigarProxy;
-import org.hyperic.sigar.SigarProxyCache;
 
 /**
  *

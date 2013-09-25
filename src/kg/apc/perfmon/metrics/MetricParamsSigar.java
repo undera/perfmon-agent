@@ -15,7 +15,7 @@ import org.hyperic.sigar.ptql.ProcessFinder;
  *
  * @author undera
  */
-class MetricParamsSigar extends MetricParams {
+public class MetricParamsSigar extends MetricParams {
 
     private static final Logger log = LoggingManager.getLoggerForClass();
     private final SigarProxy sigar;
