@@ -1,8 +1,5 @@
 package kg.apc.perfmon.metrics;
 
-import java.util.Iterator;
-import java.util.ServiceLoader;
-
 import org.hyperic.sigar.Sigar;
 import org.hyperic.sigar.SigarProxy;
 import org.hyperic.sigar.SigarProxyCache;
