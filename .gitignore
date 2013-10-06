@@ -1,3 +1,6 @@
 /target/
 /lib/
 /nbactions.xml
+/.settings/
+/.classpath
+/.project
