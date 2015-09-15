@@ -1,5 +1,10 @@
 package kg.apc.perfmon;
 
+import kg.apc.perfmon.metrics.AbstractPerfMonMetric;
+import org.apache.jorphan.logging.LoggingManager;
+import org.apache.log.Logger;
+import org.hyperic.sigar.SigarProxy;
+
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
@@ -8,13 +13,8 @@ import java.nio.channels.DatagramChannel;
 import java.nio.channels.SelectableChannel;
 import java.nio.channels.SocketChannel;
 import java.nio.channels.WritableByteChannel;
-import kg.apc.perfmon.metrics.AbstractPerfMonMetric;
-import org.apache.jorphan.logging.LoggingManager;
-import org.apache.log.Logger;
-import org.hyperic.sigar.SigarProxy;
 
 /**
- *
  * @author undera
  */
 public class PerfMonMetricGetter {
@@ -85,7 +85,6 @@ public class PerfMonMetricGetter {
             }
         } else if (cmdType.equals("udp-transmitter")) {
             setUpTransmitter(params);
-        } else if (cmdType.equals("")) {
         } else {
             throw new UnsupportedOperationException("Unknown command [" + cmdType.length() + "]: '" + cmdType + "'");
         }
@@ -130,8 +129,8 @@ public class PerfMonMetricGetter {
     private void setUpMetrics(String[] params) throws IOException {
         synchronized (channel) {
             metrics = new AbstractPerfMonMetric[params.length];
-            String metricParams = "";
             for (int n = 0; n < params.length; n++) {
+                String metricParams = "";
                 String metricType = params[n];
                 if (metricType.indexOf(DVOETOCHIE) >= 0) {
                     metricParams = metricType.substring(metricType.indexOf(DVOETOCHIE) + 1).trim();
