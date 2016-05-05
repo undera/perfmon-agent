@@ -4,6 +4,7 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
+import javax.management.ObjectName;
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryMXBean;
 import java.lang.management.MemoryUsage;
@@ -88,6 +89,10 @@ public class MemoryDataProviderTest extends TestCase {
 
         public void gc() {
             throw new UnsupportedOperationException("Not supported yet.");
+        }
+
+        public ObjectName getObjectName() {
+            return null;
         }
     }
 }

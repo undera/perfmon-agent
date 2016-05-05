@@ -18,22 +18,18 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Properties;
 
-/**
- * @author undera
- */
 public class PerfMonWorker implements Runnable {
 
     private static final Logger log = LoggingManager.getLoggerForClass();
     private int tcpPort = 4444;
     private int udpPort = 4444;
-    private int exitCode = -1;
     private boolean isFinished = true;
     private final Selector acceptSelector;
     private ServerSocketChannel tcpServer;
     private final Thread writerThread;
     private final Selector sendSelector;
     private DatagramChannel udpServer;
-    private final LinkedList tcpConnections = new LinkedList();
+    private final LinkedList<SelectableChannel> tcpConnections = new LinkedList<SelectableChannel>();
     private final Hashtable udpConnections = new Hashtable();
     private long interval = 1000;
     private final SigarProxy sigar;
@@ -98,7 +94,7 @@ public class PerfMonWorker implements Runnable {
     }
 
     public int getExitCode() {
-        return exitCode;
+        return -1;
     }
 
     public void startAcceptingCommands() {
@@ -292,9 +288,8 @@ public class PerfMonWorker implements Runnable {
 
     private void sendToUDP(SelectionKey key) throws IOException {
         synchronized (udpConnections) {
-            Iterator it = udpConnections.keySet().iterator();
-            while (it.hasNext()) {
-                SocketAddress addr = (SocketAddress) it.next();
+            for (Object o : udpConnections.keySet()) {
+                SocketAddress addr = (SocketAddress) o;
                 PerfMonMetricGetter getter = (PerfMonMetricGetter) udpConnections.get(addr);
                 if (getter.isStarted()) {
                     ByteBuffer metrics = getter.getMetricsLine();
@@ -344,9 +339,8 @@ public class PerfMonWorker implements Runnable {
         if (channel instanceof DatagramChannel) {
             synchronized (udpConnections) {
                 DatagramChannel udpChannel = (DatagramChannel) channel;
-                Iterator it = udpConnections.keySet().iterator();
-                while (it.hasNext()) {
-                    SocketAddress addr = (SocketAddress) it.next();
+                for (Object o : udpConnections.keySet()) {
+                    SocketAddress addr = (SocketAddress) o;
                     if (udpConnections.get(addr) == udpChannel) {
                         udpChannel.send(buf, addr);
                     }

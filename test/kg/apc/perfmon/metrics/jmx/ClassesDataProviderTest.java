@@ -4,6 +4,7 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
+import javax.management.ObjectName;
 import java.lang.management.ClassLoadingMXBean;
 
 /**
@@ -80,6 +81,10 @@ public class ClassesDataProviderTest extends TestCase {
 
         public void setVerbose(boolean bln) {
             throw new UnsupportedOperationException("Not supported yet.");
+        }
+
+        public ObjectName getObjectName() {
+            return null;
         }
     }
 }

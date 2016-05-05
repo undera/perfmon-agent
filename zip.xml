@@ -14,7 +14,7 @@
         </file>
         <file>
             <destName>CMDRunner.jar</destName>
-            <source>${project.build.directory}/lib/cmdrunner-${cmdrunner-version}.jar</source>
+            <source>${project.build.directory}/lib/cmdrunner-1.0.2.jar</source>
         </file>
         <file>
             <source>LICENSE</source>

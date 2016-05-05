@@ -4,6 +4,7 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
+import javax.management.ObjectName;
 import java.lang.management.CompilationMXBean;
 import java.lang.management.ManagementFactory;
 
@@ -75,6 +76,10 @@ public class CompilerDataProviderTest extends TestCase {
 
         public long getTotalCompilationTime() {
             return 123;
+        }
+
+        public ObjectName getObjectName() {
+            return null;
         }
     }
 }

@@ -6,30 +6,23 @@ import junit.framework.TestSuite;
 import kg.apc.emulators.DatagramChannelEmul;
 
 import java.io.IOException;
-import java.nio.channels.ReadableByteChannel;
-import java.nio.channels.WritableByteChannel;
 
-/**
- * @author undera
- */
 public class NIOTransportTest extends TestCase {
 
     private NIOTransport instance;
-    private DatagramChannelEmul channel;
 
     public NIOTransportTest(String testName) {
         super(testName);
     }
 
     public static Test suite() {
-        TestSuite suite = new TestSuite(NIOTransportTest.class);
-        return suite;
+        return new TestSuite(NIOTransportTest.class);
     }
 
     protected void setUp() throws Exception {
         super.setUp();
         instance = new NIOTransport();
-        channel = (DatagramChannelEmul) DatagramChannelEmul.open();
+        DatagramChannelEmul channel = (DatagramChannelEmul) DatagramChannelEmul.open();
         instance.setChannels(channel, channel);
     }
 
@@ -61,9 +54,7 @@ public class NIOTransportTest extends TestCase {
      */
     public void testSetChannels() throws IOException {
         System.out.println("setChannels");
-        ReadableByteChannel reader = null;
-        WritableByteChannel writer = null;
-        instance.setChannels(reader, writer);
+        instance.setChannels(null, null);
     }
 
     /**
