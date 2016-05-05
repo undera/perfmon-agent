@@ -1,12 +1,12 @@
 package kg.apc.perfmon.metrics;
 
-import java.util.Arrays;
 import org.hyperic.sigar.SigarException;
 import org.hyperic.sigar.SigarProxy;
 import org.hyperic.sigar.Swap;
 
+import java.util.Arrays;
+
 /**
- *
  * @author undera
  */
 class SwapMetric extends AbstractPerfMonMetric {
@@ -65,7 +65,7 @@ class SwapMetric extends AbstractPerfMonMetric {
             default:
                 throw new SigarException("Unknown swap type " + type);
         }
-        val = val/factor;
+        val = val / factor;
         res.append(Double.toString(val));
     }
 }

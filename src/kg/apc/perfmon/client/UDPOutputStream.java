@@ -7,7 +7,6 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 
 /**
- *
  * @author undera
  */
 class UDPOutputStream extends OutputStream {

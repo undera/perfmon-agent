@@ -18,7 +18,6 @@ package org.hyperic.sigar;
 import java.util.Random;
 
 /**
- *
  * @author undera
  */
 public class NetStatEmul extends NetStat {

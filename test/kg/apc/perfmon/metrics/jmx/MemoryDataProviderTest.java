@@ -1,14 +1,14 @@
 package kg.apc.perfmon.metrics.jmx;
 
-import java.lang.management.ManagementFactory;
-import java.lang.management.MemoryMXBean;
-import java.lang.management.MemoryUsage;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
+import java.lang.management.ManagementFactory;
+import java.lang.management.MemoryMXBean;
+import java.lang.management.MemoryUsage;
+
 /**
- *
  * @author undera
  */
 public class MemoryDataProviderTest extends TestCase {

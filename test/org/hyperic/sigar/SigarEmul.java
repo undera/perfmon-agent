@@ -20,7 +20,6 @@ import java.util.Map;
 import java.util.Random;
 
 /**
- *
  * @author undera
  */
 public class SigarEmul extends Sigar {

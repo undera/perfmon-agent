@@ -7,7 +7,6 @@ import java.net.DatagramSocket;
 import java.nio.ByteBuffer;
 
 /**
- *
  * @author undera
  */
 class UDPInputStream extends InputStream {

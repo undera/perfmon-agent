@@ -18,7 +18,6 @@ package kg.apc.perfmon.metrics;
 import org.hyperic.sigar.SigarProxy;
 
 /**
- *
  * @author undera
  */
 class MetricParamsSigarEmul extends MetricParamsSigar {

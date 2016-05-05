@@ -1,13 +1,13 @@
 package kg.apc.perfmon.metrics.jmx;
 
-import java.lang.management.CompilationMXBean;
-import java.lang.management.ManagementFactory;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
+import java.lang.management.CompilationMXBean;
+import java.lang.management.ManagementFactory;
+
 /**
- *
  * @author undera
  */
 public class CompilerDataProviderTest extends TestCase {

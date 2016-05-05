@@ -1,15 +1,15 @@
 package kg.apc.perfmon.client;
 
-import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.channels.ReadableByteChannel;
-import java.nio.channels.WritableByteChannel;
 import kg.apc.perfmon.PerfMonMetricGetter;
 import org.apache.jorphan.logging.LoggingManager;
 import org.apache.log.Logger;
 
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.channels.ReadableByteChannel;
+import java.nio.channels.WritableByteChannel;
+
 /**
- *
  * @author undera
  */
 class NIOTransport extends AbstractTransport {

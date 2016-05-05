@@ -1,15 +1,15 @@
 package kg.apc.perfmon.metrics;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import org.apache.jorphan.logging.LoggingManager;
 import org.apache.log.Logger;
 import org.hyperic.sigar.SigarException;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
 /**
- *
  * @author undera
  */
 class TailMetric extends AbstractPerfMonMetric {

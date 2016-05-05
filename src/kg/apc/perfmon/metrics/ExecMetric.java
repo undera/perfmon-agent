@@ -1,13 +1,13 @@
 package kg.apc.perfmon.metrics;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import org.apache.jorphan.logging.LoggingManager;
 import org.apache.log.Logger;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /**
- *
  * @author undera
  */
 class ExecMetric extends AbstractPerfMonMetric {
@@ -45,7 +45,7 @@ class ExecMetric extends AbstractPerfMonMetric {
                 lastStr = s;
             }
             res.append(lastStr);
-            
+
             stdErr.close();
             stdInput.close();
             p.destroy();

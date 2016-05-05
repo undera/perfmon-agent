@@ -1,11 +1,10 @@
 package kg.apc.perfmon.metrics.jmx;
 
+import javax.management.MBeanServerConnection;
 import java.lang.management.ClassLoadingMXBean;
 import java.lang.management.ManagementFactory;
-import javax.management.MBeanServerConnection;
 
 /**
- *
  * @author undera
  */
 class ClassesDataProvider extends AbstractJMXDataProvider {

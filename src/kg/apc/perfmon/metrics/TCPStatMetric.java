@@ -1,12 +1,12 @@
 package kg.apc.perfmon.metrics;
 
-import java.util.Arrays;
 import org.hyperic.sigar.NetStat;
 import org.hyperic.sigar.SigarException;
 import org.hyperic.sigar.SigarProxy;
 
+import java.util.Arrays;
+
 /**
- *
  * @author undera
  */
 class TCPStatMetric extends AbstractPerfMonMetric {
@@ -26,8 +26,8 @@ class TCPStatMetric extends AbstractPerfMonMetric {
     public static final byte SYN_RECV = 12;
     public static final byte TIME_WAIT = 13;
     public static final String[] types = {"bound", "close", "close_wait",
-        "closing", "estab", "fin_wait1", "fin_wait2", "idle",
-        "inbound", "last_ack", "listen", "outbound", "syn_recv", "time_wait"};
+            "closing", "estab", "fin_wait1", "fin_wait2", "idle",
+            "inbound", "last_ack", "listen", "outbound", "syn_recv", "time_wait"};
     private int type = -1;
 
     public TCPStatMetric(SigarProxy aSigar, MetricParams params) {

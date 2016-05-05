@@ -1,12 +1,11 @@
 package kg.apc.perfmon.metrics.jmx;
 
+import javax.management.*;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
-import javax.management.*;
 
 /**
- *
  * @author undera
  */
 public class EmulatorMBeanServerConnection implements MBeanServerConnection {

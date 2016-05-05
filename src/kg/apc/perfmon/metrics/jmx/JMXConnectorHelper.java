@@ -1,19 +1,19 @@
 package kg.apc.perfmon.metrics.jmx;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.util.HashMap;
-import java.util.Map;
+import org.apache.jorphan.logging.LoggingManager;
+import org.apache.log.Logger;
+
 import javax.management.MBeanServerConnection;
 import javax.management.remote.JMXConnector;
 import javax.management.remote.JMXConnectorFactory;
 import javax.management.remote.JMXServiceURL;
 import javax.naming.Context;
-import org.apache.jorphan.logging.LoggingManager;
-import org.apache.log.Logger;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
- *
  * @author undera
  */
 public class JMXConnectorHelper {

@@ -1,12 +1,12 @@
 package kg.apc.perfmon.metrics;
 
-import java.util.Arrays;
 import org.hyperic.sigar.ProcMem;
 import org.hyperic.sigar.SigarException;
 import org.hyperic.sigar.SigarProxy;
 
+import java.util.Arrays;
+
 /**
- *
  * @author undera
  */
 class MemProcMetric extends AbstractMemMetric {
@@ -18,7 +18,7 @@ class MemProcMetric extends AbstractMemMetric {
     public static final byte MINOR_FAULTS = 4;
     public static final byte RESIDENT = 5;
     public static final String[] types = {"virtual", "shared", "pagefaults",
-        "majorfaults", "minorfaults", "resident"};
+            "majorfaults", "minorfaults", "resident"};
     private int type = -1;
     private double prev = -1;
     private int dividingFactor = 1;
@@ -77,7 +77,7 @@ class MemProcMetric extends AbstractMemMetric {
             default:
                 throw new SigarException("Unknown proc mem type " + type);
         }
-        val = val/factor;
+        val = val / factor;
         res.append(Double.toString(val));
     }
 }

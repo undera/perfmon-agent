@@ -1,22 +1,6 @@
 // FIXME: both this class and getter is ugly because of poor TCP/udp abstraction. Refactor it!
 package kg.apc.perfmon;
 
-import java.io.IOException;
-import java.net.InetSocketAddress;
-import java.net.SocketAddress;
-import java.nio.ByteBuffer;
-import java.nio.channels.ClosedChannelException;
-import java.nio.channels.DatagramChannel;
-import java.nio.channels.SelectableChannel;
-import java.nio.channels.SelectionKey;
-import java.nio.channels.Selector;
-import java.nio.channels.ServerSocketChannel;
-import java.nio.channels.SocketChannel;
-import java.nio.channels.WritableByteChannel;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Properties;
 import kg.apc.perfmon.metrics.SysInfoLogger;
 import org.apache.jorphan.logging.LoggingManager;
 import org.apache.log.Logger;
@@ -24,8 +8,17 @@ import org.hyperic.sigar.Sigar;
 import org.hyperic.sigar.SigarProxy;
 import org.hyperic.sigar.SigarProxyCache;
 
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.SocketAddress;
+import java.nio.ByteBuffer;
+import java.nio.channels.*;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Properties;
+
 /**
- *
  * @author undera
  */
 public class PerfMonWorker implements Runnable {

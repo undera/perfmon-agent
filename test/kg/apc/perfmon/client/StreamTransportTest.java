@@ -1,16 +1,12 @@
 package kg.apc.perfmon.client;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
+import java.io.*;
+
 /**
- *
  * @author undera
  */
 public class StreamTransportTest extends TestCase {

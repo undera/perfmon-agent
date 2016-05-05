@@ -4,6 +4,7 @@ import java.io.IOException;
 
 /**
  * Interface delcares client capabilities. PerfMon clients must implement it.
+ *
  * @author undera
  * @see TransportFactory
  */
@@ -17,19 +18,22 @@ public interface Transport {
     /**
      * Method to be used after startWithMetrics
      * Returns array containing collected metric values
+     *
      * @return metric values
      */
     public String[] readMetrics();
 
     /**
      * Basic primitive for reading server agent output
+     *
      * @return next line read from the agent
      */
     public String readln();
 
     /**
      * Sets metrics collection interval
-     * @param interval 
+     *
+     * @param interval
      */
     public void setInterval(long interval);
 
@@ -40,33 +44,38 @@ public interface Transport {
 
     /**
      * Asks agent to start metrics transmission.
+     *
      * @param metricsArray String array containing metric description
-     * @throws IOException 
+     * @throws IOException
      */
     public void startWithMetrics(String[] metricsArray) throws IOException;
 
     /**
      * Method to test if transport connection established with applicable server agent
+     *
      * @return success
      */
     public boolean test();
 
     /**
      * Basic agent communication primitive, send one command string
+     *
      * @param line command string to send
-     * @throws IOException 
+     * @throws IOException
      */
     public void writeln(String line) throws IOException;
 
     /**
      * Returns address string if one was set by setAddressLabel
+     *
      * @return address string
      */
     public String getAddressLabel();
 
     /**
-     * Set connected address string to be used in labels, since SocketAddress 
+     * Set connected address string to be used in labels, since SocketAddress
      * does not provide any info.
+     *
      * @param label the label to set
      */
     public void setAddressLabel(String label);

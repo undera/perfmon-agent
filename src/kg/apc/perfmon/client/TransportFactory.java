@@ -1,16 +1,18 @@
 package kg.apc.perfmon.client;
 
+import org.apache.jorphan.logging.LoggingManager;
+import org.apache.log.Logger;
+
 import java.io.IOException;
 import java.net.DatagramSocket;
 import java.net.Socket;
 import java.net.SocketAddress;
 import java.nio.channels.DatagramChannel;
 import java.nio.channels.SocketChannel;
-import org.apache.jorphan.logging.LoggingManager;
-import org.apache.log.Logger;
 
 /**
  * Factory used to obtain instances of PerfMon Agent Connections (Transports)
+ *
  * @author undera
  * @see Transport
  */
@@ -21,9 +23,10 @@ public class TransportFactory {
     /**
      * Primary transport getting method. Tries to connect and test UDP Transport.
      * If UDP failed, tries TCP transport. If it fails, too, throws IOException
+     *
      * @param addr
      * @return Transport instance
-     * @throws IOException 
+     * @throws IOException
      */
     public static Transport getTransport(SocketAddress addr) throws IOException {
         Transport trans;
@@ -51,10 +54,10 @@ public class TransportFactory {
     }
 
     /**
-     * @deprecated because of instability
-     * @param addr 
+     * @param addr
      * @return transport instance
-     * @throws IOException 
+     * @throws IOException
+     * @deprecated because of instability
      */
     public static Transport NIOUDPInstance(SocketAddress addr) throws IOException {
         DatagramChannel channel = DatagramChannel.open();
@@ -66,10 +69,10 @@ public class TransportFactory {
     }
 
     /**
-     * @deprecated because of instability
      * @param addr
      * @return transport instance
-     * @throws IOException 
+     * @throws IOException
+     * @deprecated because of instability
      */
     public static Transport NIOTCPInstance(SocketAddress addr) throws IOException {
         SocketChannel channel = SocketChannel.open();
@@ -81,9 +84,10 @@ public class TransportFactory {
 
     /**
      * Returns TCP transport instance, connected to specified address
+     *
      * @param addr
      * @return Transport instance
-     * @throws IOException 
+     * @throws IOException
      */
     public static Transport TCPInstance(SocketAddress addr) throws IOException {
         Socket sock = new Socket();
@@ -103,9 +107,10 @@ public class TransportFactory {
     /**
      * Returns new UDP Transport instance
      * connected to specified socket address
+     *
      * @param addr
      * @return connected Transport
-     * @throws IOException 
+     * @throws IOException
      */
     public static Transport UDPInstance(SocketAddress addr) throws IOException {
         DatagramSocket sock = new DatagramSocket();

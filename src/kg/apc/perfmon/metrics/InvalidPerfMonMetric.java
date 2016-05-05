@@ -4,7 +4,6 @@ import org.apache.jorphan.logging.LoggingManager;
 import org.apache.log.Logger;
 
 /**
- *
  * @author undera
  */
 public class InvalidPerfMonMetric extends AbstractPerfMonMetric {

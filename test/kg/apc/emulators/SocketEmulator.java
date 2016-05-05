@@ -6,28 +6,23 @@ import java.io.OutputStream;
 import java.net.Socket;
 
 /**
- *
  * @author APC
  */
 public class SocketEmulator
-      extends Socket
-{
-   private final SocketEmulatorOutputStream os;
-   private final SocketEmulatorInputStream is;
+        extends Socket {
+    private final SocketEmulatorOutputStream os;
+    private final SocketEmulatorInputStream is;
 
-   public SocketEmulator()
-   {
-      os = new SocketEmulatorOutputStream();
-      is = new SocketEmulatorInputStream();
-   }
+    public SocketEmulator() {
+        os = new SocketEmulatorOutputStream();
+        is = new SocketEmulatorInputStream();
+    }
 
-   public OutputStream getOutputStream() throws IOException
-   {
-      return os;
-   }
+    public OutputStream getOutputStream() throws IOException {
+        return os;
+    }
 
-   public InputStream getInputStream() throws IOException
-   {
-      return is;
-   }
+    public InputStream getInputStream() throws IOException {
+        return is;
+    }
 }

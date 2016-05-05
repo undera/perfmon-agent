@@ -1,7 +1,5 @@
 package kg.apc.perfmon.metrics;
 
-import java.util.Arrays;
-import java.util.LinkedList;
 import org.apache.jorphan.logging.LoggingManager;
 import org.apache.log.Logger;
 import org.hyperic.sigar.NetInterfaceConfig;
@@ -9,8 +7,10 @@ import org.hyperic.sigar.NetInterfaceStat;
 import org.hyperic.sigar.SigarException;
 import org.hyperic.sigar.SigarProxy;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+
 /**
- *
  * @author undera
  */
 class NetworkIOMetric extends AbstractPerfMonMetric {
@@ -32,8 +32,8 @@ class NetworkIOMetric extends AbstractPerfMonMetric {
     public static final byte SPEED = 13;
     public static final byte TX_PACKETS = 14;
     public static final String[] types = {"bytesrecv", "rxdrops", "rxerr",
-        "rxframe", "rxoverruns", "rx", "bytessent", "txcarrier", "txcollisions", "txdrops",
-        "txerr", "txoverruns", "used", "speed", "tx"};
+            "rxframe", "rxoverruns", "rx", "bytessent", "txcarrier", "txcollisions", "txdrops",
+            "txerr", "txoverruns", "used", "speed", "tx"};
     private int type = -1;
     private final String[] interfaces;
     private double prev = -1;
@@ -41,7 +41,7 @@ class NetworkIOMetric extends AbstractPerfMonMetric {
 
     public NetworkIOMetric(SigarProxy aSigar, MetricParams params) {
         super(aSigar);
-        
+
         if (params.type.length() == 0) {
             type = RX_BYTES;
         } else {
@@ -157,7 +157,7 @@ class NetworkIOMetric extends AbstractPerfMonMetric {
                 val = prev > 0 ? cur - prev : 0;
                 prev = cur;
         }
-        val = val/factor;
+        val = val / factor;
         res.append(Double.toString(val));
     }
 }

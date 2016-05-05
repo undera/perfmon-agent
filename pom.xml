@@ -28,47 +28,47 @@
             <email>apc@apc.kg</email>
         </developer>
     </developers>
-    <distributionManagement>        
+    <distributionManagement>
         <snapshotRepository>
             <id>sonatype-snapshot</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>            
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
         </snapshotRepository>
         <repository>
             <id>sonatype</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>            
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
-    
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java-version>1.4</java-version>
         <cmdrunner-version>1.0.1</cmdrunner-version>
-	</properties>
-	<dependencies>
+    </properties>
+    <dependencies>
         <dependency>
             <groupId>kg.apc</groupId>
             <artifactId>cmdrunner</artifactId>
             <version>${cmdrunner-version}</version>
         </dependency>
-       
+
         <dependency>
             <groupId>org.fusesource</groupId>
             <artifactId>sigar</artifactId>
             <version>1.6.4</version>
         </dependency>
-                
+
         <dependency>
             <groupId>avalon-framework</groupId>
             <artifactId>avalon-framework</artifactId>
             <version>4.1.5</version>
         </dependency>
-        
+
         <dependency>
             <groupId>logkit</groupId>
             <artifactId>logkit</artifactId>
             <version>2.0</version>
-        </dependency>        
-        
+        </dependency>
+
         <dependency>
             <groupId>org.apache.jmeter</groupId>
             <artifactId>jorphan</artifactId>
@@ -116,7 +116,7 @@
                 <version>2.9</version>
                 <executions>
                     <execution>
-                        <phase>package</phase>                        
+                        <phase>package</phase>
                         <goals>
                             <goal>jar</goal>
                         </goals>
@@ -129,7 +129,7 @@
                 <version>2.2.1</version>
                 <executions>
                     <execution>
-                        <phase>package</phase>                        
+                        <phase>package</phase>
                         <goals>
                             <goal>jar</goal>
                         </goals>
@@ -157,14 +157,14 @@
                 <version>2.7</version>
                 <executions>
                     <execution>
-                        <phase>deploy</phase>                        
+                        <phase>deploy</phase>
                         <goals>
                             <goal>deploy</goal>
                         </goals>
                     </execution>
                 </executions>
             </plugin>
-            
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

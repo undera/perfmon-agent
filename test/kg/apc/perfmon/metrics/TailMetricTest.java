@@ -1,13 +1,13 @@
 package kg.apc.perfmon.metrics;
 
 import junit.framework.Test;
+import junit.framework.TestCase;
 import junit.framework.TestSuite;
+
 import java.io.File;
 import java.io.PrintWriter;
-import junit.framework.TestCase;
 
 /**
- *
  * @author undera
  */
 public class TailMetricTest extends TestCase {

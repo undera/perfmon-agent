@@ -1,16 +1,15 @@
 package kg.apc.perfmon.metrics.jmx;
 
+import javax.management.MBeanServerConnection;
+import javax.management.MalformedObjectNameException;
+import javax.management.ObjectName;
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
-import javax.management.MBeanServerConnection;
-import javax.management.MalformedObjectNameException;
-import javax.management.ObjectName;
 
 /**
- *
  * @author undera
  */
 abstract public class AbstractJMXDataProvider {
@@ -68,11 +67,11 @@ abstract public class AbstractJMXDataProvider {
     abstract protected long getValueFromBean(Object bean);
 
     public boolean isBytesValue() {
-       return bytesValue;
+        return bytesValue;
     }
 
     public void getValue(StringBuffer res) {
-       getValue(res, 1);
+        getValue(res, 1);
     }
 
     public void getValue(StringBuffer res, int divider) {
@@ -93,7 +92,7 @@ abstract public class AbstractJMXDataProvider {
             }
         }
 
-        value = value/divider;
+        value = value / divider;
 
         res.append(Long.toString(value));
     }

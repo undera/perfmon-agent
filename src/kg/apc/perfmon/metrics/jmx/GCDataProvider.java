@@ -1,11 +1,10 @@
 package kg.apc.perfmon.metrics.jmx;
 
+import javax.management.MBeanServerConnection;
 import java.lang.management.GarbageCollectorMXBean;
 import java.lang.management.ManagementFactory;
-import javax.management.MBeanServerConnection;
 
 /**
- *
  * @author undera
  */
 class GCDataProvider extends AbstractJMXDataProvider {

@@ -1,14 +1,13 @@
 package kg.apc.perfmon.metrics;
 
-import java.util.Hashtable;
-
 import kg.apc.perfmon.PerfMonMetricGetter;
-
 import org.apache.jorphan.logging.LoggingManager;
 import org.apache.log.Logger;
 import org.hyperic.sigar.SigarProxy;
+
+import java.util.Hashtable;
+
 /**
- *
  * @author undera
  */
 public abstract class AbstractPerfMonMetric {
@@ -22,14 +21,14 @@ public abstract class AbstractPerfMonMetric {
         sigarProxy = aSigar;
         unitDividingFactors.put("b", new Integer(1));
         unitDividingFactors.put("kb", new Integer(1024));
-        unitDividingFactors.put("mb", new Integer(1024*1024));
+        unitDividingFactors.put("mb", new Integer(1024 * 1024));
     }
-    
+
     protected int getUnitDividingFactor(String unit) {
-        if(!unitDividingFactors.containsKey(unit)) {
+        if (!unitDividingFactors.containsKey(unit)) {
             return 1;
         } else {
-            return ((Integer)unitDividingFactors.get(unit)).intValue();
+            return ((Integer) unitDividingFactors.get(unit)).intValue();
         }
     }
 
@@ -44,9 +43,9 @@ public abstract class AbstractPerfMonMetric {
 
         MetricParamsSigar metricParams = MetricParamsSigar.createFromString(metricParamsStr, sigarProxy);
         PerfMonMetricsService service = PerfMonMetricsService.getInstance();
-        
+
         try {
-        	metric = service.getMetric(metricType, metricParams, sigarProxy);
+            metric = service.getMetric(metricType, metricParams, sigarProxy);
         } catch (IllegalArgumentException ex) {
             log.debug(ex.toString());
             log.debug("Invalid parameters specified for metric " + metricType + ": " + metricParams);

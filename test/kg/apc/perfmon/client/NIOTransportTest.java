@@ -1,15 +1,15 @@
 package kg.apc.perfmon.client;
 
-import java.io.IOException;
-import java.nio.channels.ReadableByteChannel;
-import java.nio.channels.WritableByteChannel;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import kg.apc.emulators.DatagramChannelEmul;
 
+import java.io.IOException;
+import java.nio.channels.ReadableByteChannel;
+import java.nio.channels.WritableByteChannel;
+
 /**
- *
  * @author undera
  */
 public class NIOTransportTest extends TestCase {

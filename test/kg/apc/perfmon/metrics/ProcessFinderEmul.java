@@ -20,7 +20,6 @@ import org.hyperic.sigar.SigarException;
 import org.hyperic.sigar.ptql.ProcessFinder;
 
 /**
- *
  * @author undera
  */
 class ProcessFinderEmul extends ProcessFinder {

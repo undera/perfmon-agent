@@ -1,12 +1,12 @@
 package kg.apc.perfmon.metrics.jmx;
 
-import java.lang.management.GarbageCollectorMXBean;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
+import java.lang.management.GarbageCollectorMXBean;
+
 /**
- *
  * @author undera
  */
 public class GCDataProviderTest extends TestCase {
@@ -57,7 +57,7 @@ public class GCDataProviderTest extends TestCase {
         Object bean = new GarbageCollectorMXBeanImpl();
         GCDataProvider instance = new GCDataProvider(new EmulatorMBeanServerConnection(), false);
         long result = instance.getValueFromBean(bean);
-        assertTrue(result>0);
+        assertTrue(result > 0);
     }
 
     private static class GarbageCollectorMXBeanImpl implements GarbageCollectorMXBean {

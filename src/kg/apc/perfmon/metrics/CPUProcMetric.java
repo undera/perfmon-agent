@@ -1,12 +1,12 @@
 package kg.apc.perfmon.metrics;
 
-import java.util.Arrays;
 import org.hyperic.sigar.ProcCpu;
 import org.hyperic.sigar.SigarException;
 import org.hyperic.sigar.SigarProxy;
 
+import java.util.Arrays;
+
 /**
- *
  * @author undera
  */
 class CPUProcMetric extends AbstractCPUMetric {

@@ -1,19 +1,15 @@
 package kg.apc.perfmon.metrics;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.StringTokenizer;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import org.hyperic.sigar.SigarProxyEmul;
-import org.hyperic.sigar.Sigar;
-import org.hyperic.sigar.SigarEmul;
-import org.hyperic.sigar.SigarProxy;
-import org.hyperic.sigar.SigarProxyCache;
+import org.hyperic.sigar.*;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.StringTokenizer;
 
 /**
- *
  * @author undera
  */
 public class MetricParamsTest extends TestCase {

@@ -1,15 +1,17 @@
 package kg.apc.perfmon.client;
 
-import java.io.IOException;
-import java.io.PipedInputStream;
-import java.io.PipedOutputStream;
 import kg.apc.perfmon.PerfMonMetricGetter;
 import org.apache.jorphan.logging.LoggingManager;
 import org.apache.log.Logger;
 
+import java.io.IOException;
+import java.io.PipedInputStream;
+import java.io.PipedOutputStream;
+
 /**
- * Class that solved most of communication tasks for Transport interface 
+ * Class that solved most of communication tasks for Transport interface
  * and only readln() and writeln() methods left to be implemented
+ *
  * @author undera
  * @see Transport
  */
@@ -78,9 +80,10 @@ public abstract class AbstractTransport implements Transport {
 
     /**
      * Method retrieves next line from received bytes sequence
+     *
      * @param newlineCount
      * @return next command line
-     * @throws IOException 
+     * @throws IOException
      */
     protected String getNextLine(int newlineCount) throws IOException {
         if (newlineCount == 0) {

@@ -1,13 +1,13 @@
 package kg.apc.perfmon.metrics;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.StringTokenizer;
 import org.apache.jorphan.logging.LoggingManager;
 import org.apache.log.Logger;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.StringTokenizer;
+
 /**
- *
  * @author undera
  */
 public class MetricParams {
@@ -22,20 +22,20 @@ public class MetricParams {
     String[] params = new String[0];
     String type = "";
     String unit = "";
-    
+
     protected static void parseParams(String metricParams, MetricParams inst) throws NumberFormatException {
-       //for split, avoid ':' preceeded with '\', ie do not process "\:"
-       String[] tokens = metricParams.split("(?<!\\\\)" + AbstractPerfMonMetric.PARAMS_DELIMITER);
+        //for split, avoid ':' preceeded with '\', ie do not process "\:"
+        String[] tokens = metricParams.split("(?<!\\\\)" + AbstractPerfMonMetric.PARAMS_DELIMITER);
 
-       List params = new LinkedList();
+        List params = new LinkedList();
 
-       for(int i=0; i<tokens.length; i++) {
-          inst.populateParams(tokens[i].replaceAll("\\\\:", ":"), params);
-       }
+        for (int i = 0; i < tokens.length; i++) {
+            inst.populateParams(tokens[i].replaceAll("\\\\:", ":"), params);
+        }
 
-       inst.params = (String[]) params.toArray(new String[0]);
+        inst.params = (String[]) params.toArray(new String[0]);
     }
-    
+
     protected MetricParams() {
     }
 
@@ -86,15 +86,15 @@ public class MetricParams {
     public String getLabel() {
         return label;
     }
-    
+
     public String[] getParams() {
-    	return params;
+        return params;
     }
-    
+
     public String getType() {
-    	return type;
+        return type;
     }
-    
+
     public String getUnit() {
         return unit;
     }

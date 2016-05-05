@@ -1,14 +1,14 @@
 package kg.apc.perfmon.client;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import kg.apc.perfmon.PerfMonMetricGetter;
 import org.apache.jorphan.logging.LoggingManager;
 import org.apache.log.Logger;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 /**
- *
  * @author undera
  */
 class StreamTransport extends AbstractTransport {

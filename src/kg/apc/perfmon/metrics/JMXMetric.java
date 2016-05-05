@@ -1,13 +1,13 @@
 package kg.apc.perfmon.metrics;
 
-import javax.management.MBeanServerConnection;
 import kg.apc.perfmon.metrics.jmx.AbstractJMXDataProvider;
 import kg.apc.perfmon.metrics.jmx.JMXConnectorHelper;
 import org.apache.jorphan.logging.LoggingManager;
 import org.apache.log.Logger;
 
+import javax.management.MBeanServerConnection;
+
 /**
- *
  * @author undera
  */
 public class JMXMetric extends AbstractPerfMonMetric {
@@ -49,7 +49,7 @@ public class JMXMetric extends AbstractPerfMonMetric {
     }
 
     public void getValue(StringBuffer res) throws Exception {
-        if(dataProvider.isBytesValue()) {
+        if (dataProvider.isBytesValue()) {
             dataProvider.getValue(res, dividingFactor);
         } else {
             dataProvider.getValue(res);

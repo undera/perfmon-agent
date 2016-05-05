@@ -1,7 +1,6 @@
 package kg.apc.emulators;
 
 /**
- *
  * @author undera
  */
 public class BinaryTools {

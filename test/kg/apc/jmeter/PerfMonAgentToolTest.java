@@ -3,7 +3,6 @@ package kg.apc.jmeter;
 import junit.framework.TestCase;
 
 /**
- *
  * @author undera
  */
 public class PerfMonAgentToolTest extends TestCase {

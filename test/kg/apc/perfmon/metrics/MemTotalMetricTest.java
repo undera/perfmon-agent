@@ -3,13 +3,10 @@ package kg.apc.perfmon.metrics;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import org.hyperic.sigar.SigarProxyEmul;
-import org.hyperic.sigar.Sigar;
 import org.hyperic.sigar.SigarProxy;
-import org.hyperic.sigar.SigarProxyCache;
+import org.hyperic.sigar.SigarProxyEmul;
 
 /**
- *
  * @author undera
  */
 public class MemTotalMetricTest extends TestCase {

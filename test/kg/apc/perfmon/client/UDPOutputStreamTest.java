@@ -4,17 +4,17 @@
  */
 package kg.apc.perfmon.client;
 
-import java.net.DatagramSocket;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
+import java.net.DatagramSocket;
+
 /**
- *
  * @author undera
  */
 public class UDPOutputStreamTest extends TestCase {
-    
+
     public UDPOutputStreamTest(String testName) {
         super(testName);
     }
@@ -23,11 +23,11 @@ public class UDPOutputStreamTest extends TestCase {
         TestSuite suite = new TestSuite(UDPOutputStreamTest.class);
         return suite;
     }
-    
+
     protected void setUp() throws Exception {
         super.setUp();
     }
-    
+
     protected void tearDown() throws Exception {
         super.tearDown();
     }

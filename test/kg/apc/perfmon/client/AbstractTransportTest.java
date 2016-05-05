@@ -1,12 +1,12 @@
 package kg.apc.perfmon.client;
 
-import java.io.IOException;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
+import java.io.IOException;
+
 /**
- *
  * @author undera
  */
 public class AbstractTransportTest extends TestCase {

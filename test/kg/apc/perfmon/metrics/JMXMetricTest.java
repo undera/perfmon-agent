@@ -1,12 +1,12 @@
 package kg.apc.perfmon.metrics;
 
-import javax.management.MBeanServerConnection;
 import junit.framework.TestCase;
 import kg.apc.perfmon.metrics.jmx.EmulatorMBeanServerConnection;
 import kg.apc.perfmon.metrics.jmx.JMXConnectorHelper;
 
+import javax.management.MBeanServerConnection;
+
 /**
- *
  * @author undera
  */
 public class JMXMetricTest extends TestCase {

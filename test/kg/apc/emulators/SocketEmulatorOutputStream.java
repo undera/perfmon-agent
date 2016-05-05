@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 /**
- *
  * @author apc
  */
 public class SocketEmulatorOutputStream
@@ -25,7 +24,6 @@ public class SocketEmulatorOutputStream
     }
 
     /**
-     * 
      * @return
      */
     public String getWrittenBytesAsHexString() {

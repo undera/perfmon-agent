@@ -23,11 +23,10 @@ import org.hyperic.sigar.SigarProxy;
 import org.hyperic.sigar.SigarProxyCache;
 
 /**
- *
  * @author undera
  */
 public class SysInfoLoggerTest extends TestCase {
-    
+
     public SysInfoLoggerTest(String testName) {
         super(testName);
     }
@@ -36,11 +35,11 @@ public class SysInfoLoggerTest extends TestCase {
         TestSuite suite = new TestSuite(SysInfoLoggerTest.class);
         return suite;
     }
-    
+
     protected void setUp() throws Exception {
         super.setUp();
     }
-    
+
     protected void tearDown() throws Exception {
         super.tearDown();
     }

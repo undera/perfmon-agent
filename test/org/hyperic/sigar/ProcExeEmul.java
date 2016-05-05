@@ -16,7 +16,6 @@
 package org.hyperic.sigar;
 
 /**
- *
  * @author undera
  */
 public class ProcExeEmul extends ProcExe {

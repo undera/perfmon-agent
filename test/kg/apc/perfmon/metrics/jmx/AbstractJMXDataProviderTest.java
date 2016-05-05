@@ -1,14 +1,14 @@
 package kg.apc.perfmon.metrics.jmx;
 
-import java.lang.management.GarbageCollectorMXBean;
-import java.lang.management.ManagementFactory;
-import javax.management.MBeanServerConnection;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
+import javax.management.MBeanServerConnection;
+import java.lang.management.GarbageCollectorMXBean;
+import java.lang.management.ManagementFactory;
+
 /**
- *
  * @author undera
  */
 public class AbstractJMXDataProviderTest extends TestCase {

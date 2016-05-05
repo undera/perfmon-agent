@@ -6,7 +6,6 @@ import junit.framework.TestSuite;
 import org.hyperic.sigar.SigarProxy;
 
 /**
- *
  * @author undera
  */
 public class AbstractCPUMetricTest extends TestCase {

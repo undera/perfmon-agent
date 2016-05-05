@@ -9,15 +9,14 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 /**
- *
  * @author undera
  */
 public class JmxSuite extends TestCase {
-    
+
     public JmxSuite(String testName) {
         super(testName);
     }
-    
+
     public static Test suite() {
         TestSuite suite = new TestSuite("JmxSuite");
         suite.addTest(MemoryDataProviderTest.suite());
@@ -29,11 +28,11 @@ public class JmxSuite extends TestCase {
         suite.addTest(JMXConnectorHelperTest.suite());
         return suite;
     }
-    
+
     protected void setUp() throws Exception {
         super.setUp();
     }
-    
+
     protected void tearDown() throws Exception {
         super.tearDown();
     }

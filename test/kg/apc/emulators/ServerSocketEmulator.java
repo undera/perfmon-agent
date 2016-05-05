@@ -5,7 +5,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- *
  * @author undera
  */
 public class ServerSocketEmulator extends ServerSocket {

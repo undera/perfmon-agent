@@ -5,7 +5,6 @@ import org.apache.log.Logger;
 import org.hyperic.sigar.SigarProxy;
 
 /**
- *
  * @author undera
  */
 abstract class AbstractCPUMetric extends AbstractPerfMonMetric {

@@ -1,5 +1,8 @@
 package kg.apc.emulators;
 
+import org.apache.jorphan.logging.LoggingManager;
+import org.apache.log.Logger;
+
 import java.io.IOException;
 import java.net.DatagramSocket;
 import java.net.SocketAddress;
@@ -7,11 +10,8 @@ import java.net.SocketException;
 import java.nio.ByteBuffer;
 import java.nio.channels.DatagramChannel;
 import java.util.logging.Level;
-import org.apache.jorphan.logging.LoggingManager;
-import org.apache.log.Logger;
 
 /**
- *
  * @author undera
  */
 public class DatagramChannelEmul extends DatagramChannel {

@@ -1,14 +1,14 @@
 package kg.apc.perfmon.client;
 
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import kg.apc.emulators.DatagramSocketEmulator;
 
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+
 /**
- *
  * @author undera
  */
 public class UDPInputStreamTest extends TestCase {

@@ -5,7 +5,6 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 /**
- *
  * @author undera
  */
 public class ExecMetricTest extends TestCase {
@@ -35,7 +34,7 @@ public class ExecMetricTest extends TestCase {
         StringBuffer res = new StringBuffer();
         //default is linux os
         String cmd = "echo:123";
-        if(System.getProperty("os.name").toLowerCase().indexOf("windows") != -1) {
+        if (System.getProperty("os.name").toLowerCase().indexOf("windows") != -1) {
             cmd = "cmd:/C:echo:123";
         }
         ExecMetric instance = new ExecMetric(MetricParams.createFromString(cmd));

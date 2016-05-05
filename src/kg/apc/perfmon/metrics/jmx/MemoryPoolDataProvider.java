@@ -1,11 +1,10 @@
 package kg.apc.perfmon.metrics.jmx;
 
+import javax.management.MBeanServerConnection;
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryPoolMXBean;
-import javax.management.MBeanServerConnection;
 
 /**
- *
  * @author undera
  */
 class MemoryPoolDataProvider extends AbstractJMXDataProvider {

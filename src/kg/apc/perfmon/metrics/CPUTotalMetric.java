@@ -1,14 +1,14 @@
 package kg.apc.perfmon.metrics;
 
-import java.util.Arrays;
 import org.apache.jorphan.logging.LoggingManager;
 import org.apache.log.Logger;
 import org.hyperic.sigar.CpuPerc;
 import org.hyperic.sigar.SigarException;
 import org.hyperic.sigar.SigarProxy;
 
+import java.util.Arrays;
+
 /**
- *
  * @author undera
  */
 class CPUTotalMetric extends AbstractCPUMetric {
@@ -24,7 +24,7 @@ class CPUTotalMetric extends AbstractCPUMetric {
     public static final byte USER = 7;
     public static final byte IOWAIT = 8;
     public static final String[] types = {"combined", "idle", "irq", "nice", "softirq",
-        "stolen", "system", "user", "iowait"};
+            "stolen", "system", "user", "iowait"};
     private int type = -1;
     private int coreID = -1;
 

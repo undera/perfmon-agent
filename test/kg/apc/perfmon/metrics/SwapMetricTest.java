@@ -18,15 +18,14 @@ package kg.apc.perfmon.metrics;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import org.hyperic.sigar.SigarProxyEmul;
 import org.hyperic.sigar.SigarProxy;
+import org.hyperic.sigar.SigarProxyEmul;
 
 /**
- *
  * @author undera
  */
 public class SwapMetricTest extends TestCase {
-    
+
     public SwapMetricTest(String testName) {
         super(testName);
     }
@@ -35,11 +34,11 @@ public class SwapMetricTest extends TestCase {
         TestSuite suite = new TestSuite(SwapMetricTest.class);
         return suite;
     }
-    
+
     protected void setUp() throws Exception {
         super.setUp();
     }
-    
+
     protected void tearDown() throws Exception {
         super.tearDown();
     }

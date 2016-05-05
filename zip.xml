@@ -1,11 +1,12 @@
-<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
     <id>${project.version}</id>
     <baseDirectory>/</baseDirectory>
     <formats>
         <format>zip</format>
     </formats>
-    
+
     <files>
         <file>
             <destName>ServerAgent.jar</destName>
@@ -19,7 +20,7 @@
             <source>LICENSE</source>
         </file>
     </files>
-    
+
     <fileSets>
         <fileSet>
             <directory>${basedir}</directory>
@@ -27,7 +28,7 @@
                 <include>startAgent.*</include>
             </includes>
             <fileMode>0755</fileMode>
-            <outputDirectory>.</outputDirectory>            
+            <outputDirectory>.</outputDirectory>
         </fileSet>
         <fileSet>
             <directory>${basedir}</directory>

@@ -9,15 +9,14 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 /**
- *
  * @author undera
  */
 public class ClientSuite extends TestCase {
-    
+
     public ClientSuite(String testName) {
         super(testName);
     }
-    
+
     public static Test suite() {
         TestSuite suite = new TestSuite("ClientSuite");
         suite.addTest(NIOTransportTest.suite());
@@ -29,11 +28,11 @@ public class ClientSuite extends TestCase {
         suite.addTest(AbstractTransportTest.suite());
         return suite;
     }
-    
+
     protected void setUp() throws Exception {
         super.setUp();
     }
-    
+
     protected void tearDown() throws Exception {
         super.tearDown();
     }

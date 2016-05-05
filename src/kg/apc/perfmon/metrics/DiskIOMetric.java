@@ -1,14 +1,14 @@
 package kg.apc.perfmon.metrics;
 
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.LinkedList;
 import org.apache.jorphan.logging.LoggingManager;
 import org.apache.log.Logger;
 import org.hyperic.sigar.*;
 
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.LinkedList;
+
 /**
- *
  * @author undera
  */
 class DiskIOMetric extends AbstractPerfMonMetric {
@@ -28,8 +28,8 @@ class DiskIOMetric extends AbstractPerfMonMetric {
     public static final byte USE_PERCENT = 11;
     public static final byte USED = 12;
     public static final String[] types = {"available", "queue", "readbytes",
-        "reads", "service", "writebytes", "writes", "files", "free", "freefiles",
-        "total", "useperc", "used"};
+            "reads", "service", "writebytes", "writes", "files", "free", "freefiles",
+            "total", "useperc", "used"};
     private int type = -1;
     private final String[] filesystems;
     private double prev = -1;
@@ -189,7 +189,7 @@ class DiskIOMetric extends AbstractPerfMonMetric {
                 break;
         }
 
-        val = val/factor;
+        val = val / factor;
         res.append(Double.toString(val));
     }
 }
