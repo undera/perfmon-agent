@@ -1,5 +1,9 @@
+addons:
+  hosts:
+    - myshorthost
+  hostname: myshorthost
 language: java
 jdk:
-  - openjdk6
+  - openjdk7
 install: "mvn clean -B"
 

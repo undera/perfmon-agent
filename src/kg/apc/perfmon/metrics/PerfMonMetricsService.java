@@ -25,14 +25,14 @@ public class PerfMonMetricsService {
         return service;
     }
 
-    public AbstractPerfMonMetric getMetric(String metricType, MetricParamsSigar metricParams, SigarProxy sigarProxy) throws IllegalArgumentException, RuntimeException {
+    public AbstractPerfMonMetric getMetric(String metricType, MetricParamsSigar metricParams, SigarProxy sigarProxy, boolean isNoExec) throws IllegalArgumentException, RuntimeException {
         AbstractPerfMonMetric metric = null;
 
         Iterator mCreators = loader.iterator();
         while (metric == null && mCreators.hasNext()) {
             PerfMonMetricsCreator mCreator = (PerfMonMetricsCreator) mCreators.next();
             try {
-                metric = mCreator.getMetricProvider(metricType, metricParams, sigarProxy);
+                metric = mCreator.getMetricProvider(metricType, metricParams, sigarProxy, isNoExec);
             } catch (Exception e) {
                 log.debug("Error when getting metrics from: " + mCreator.getClass());
                 log.debug(e.getMessage());

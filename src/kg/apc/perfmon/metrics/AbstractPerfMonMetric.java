@@ -34,7 +34,7 @@ public abstract class AbstractPerfMonMetric {
 
     abstract public void getValue(StringBuffer res) throws Exception;
 
-    public static AbstractPerfMonMetric createMetric(String metricType, String metricParamsStr, SigarProxy sigarProxy) {
+    public static AbstractPerfMonMetric createMetric(String metricType, String metricParamsStr, SigarProxy sigarProxy, boolean isNoExec) {
         log.debug("Creating metric: " + metricType + " with params: " + metricParamsStr);
         AbstractPerfMonMetric metric;
         if (metricType.indexOf(' ') > 0) {
@@ -45,7 +45,7 @@ public abstract class AbstractPerfMonMetric {
         PerfMonMetricsService service = PerfMonMetricsService.getInstance();
 
         try {
-            metric = service.getMetric(metricType, metricParams, sigarProxy);
+            metric = service.getMetric(metricType, metricParams, sigarProxy, isNoExec);
         } catch (IllegalArgumentException ex) {
             log.debug(ex.toString());
             log.debug("Invalid parameters specified for metric " + metricType + ": " + metricParams);

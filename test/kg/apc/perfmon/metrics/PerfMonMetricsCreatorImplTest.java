@@ -24,7 +24,7 @@ public class PerfMonMetricsCreatorImplTest extends TestCase {
         SigarProxy sigarProxy = SigarProxyCache.newInstance(new Sigar(), 500);
         MetricParamsSigar metricParamsSigar = MetricParamsSigar.createFromString(metricParams, sigarProxy);
         Class expResult = CPUTotalMetric.class;
-        AbstractPerfMonMetric result = getter.getMetricProvider(metricType, metricParamsSigar, sigarProxy);
+        AbstractPerfMonMetric result = getter.getMetricProvider(metricType, metricParamsSigar, sigarProxy, false);
         assertEquals(expResult, result.getClass());
     }
 
@@ -40,12 +40,25 @@ public class PerfMonMetricsCreatorImplTest extends TestCase {
         SigarProxy sigarProxy = SigarProxyCache.newInstance(new Sigar(), 500);
         MetricParamsSigar metricParamsSigar = MetricParamsSigar.createFromString(metricParams, sigarProxy);
         try {
-            AbstractPerfMonMetric result = getter.getMetricProvider(metricType, metricParamsSigar, sigarProxy);
+            AbstractPerfMonMetric result = getter.getMetricProvider(metricType, metricParamsSigar, sigarProxy, false);
         } catch (Throwable e) {
             catched = e;
         }
         assertNotNull(catched);
         assertEquals(RuntimeException.class, catched.getClass());
     }
+
+    public final void testNoExec() {
+        PerfMonMetricsCreatorImpl getter = new PerfMonMetricsCreatorImpl();
+        System.out.println("no-exec");
+        String metricType = "exec";
+        String metricParams = "";
+        SigarProxy sigarProxy = SigarProxyCache.newInstance(new Sigar(), 500);
+        MetricParamsSigar metricParamsSigar = MetricParamsSigar.createFromString(metricParams, sigarProxy);
+        AbstractPerfMonMetric result = getter.getMetricProvider(metricType, metricParamsSigar, sigarProxy, true);
+        assertNotNull(result);
+        assertEquals(InvalidPerfMonMetric.class, result.getClass());
+    }
+
 
 }

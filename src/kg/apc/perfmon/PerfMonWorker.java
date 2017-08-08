@@ -35,6 +35,7 @@ public class PerfMonWorker implements Runnable {
     private final SigarProxy sigar;
     private long numConnections = 0;
     private boolean autoShutdown = false;
+    private boolean isNoExec = false;
 
     public PerfMonWorker() throws IOException {
         acceptSelector = Selector.open();
@@ -368,5 +369,13 @@ public class PerfMonWorker implements Runnable {
             numConnections++;
             udpConnections.put(remoteAddr, getter);
         }
+    }
+
+    public boolean isNoExec() {
+        return isNoExec;
+    }
+
+    public void setNoExec(boolean noExec) {
+        isNoExec = noExec;
     }
 }

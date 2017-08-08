@@ -9,7 +9,7 @@ import javax.management.MBeanServerConnection;
 /**
  * @author undera
  */
-public class JMXConnectorHelperTest extends TestCase {
+public class JMXConnectorHelperTest  extends TestCase {
 
     public JMXConnectorHelperTest(String testName) {
         super(testName);
