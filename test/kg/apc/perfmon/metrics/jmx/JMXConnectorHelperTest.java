@@ -1,16 +1,16 @@
-//package kg.apc.perfmon.metrics.jmx;
-//
+package kg.apc.perfmon.metrics.jmx;
+
 //import junit.framework.Test;
 //import junit.framework.TestCase;
 //import junit.framework.TestSuite;
 //
 //import javax.management.MBeanServerConnection;
-//
-///**
-// * @author undera
-// */
-//public class JMXConnectorHelperTest extends TestCase {
-//
+
+/**
+ * @author undera
+ */
+public class JMXConnectorHelperTest {// extends TestCase {
+
 //    public JMXConnectorHelperTest(String testName) {
 //        super(testName);
 //    }
@@ -56,4 +56,4 @@
 //        } catch (RuntimeException e) {
 //        }
 //    }
-//}
+}
