@@ -9,9 +9,6 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ListIterator;
 
-/**
- * @author undera
- */
 public class AgentTool extends AbstractCMDTool {
 
     private static final Logger log = LoggingManager.getLoggerForClass();
@@ -86,7 +83,7 @@ public class AgentTool extends AbstractCMDTool {
         os.println("Options for tool 'PerfMon': "
                 + "[ --tcp-port <port no> --udp-port <port no> "
                 + "--interval <seconds> --loglevel <debug|info|warn|error>"
-                + "--sysinfo --auto-shutdown]");
+                + "--sysinfo --auto-shutdown --no-exec]");
     }
 
     protected PerfMonWorker getWorker() throws IOException {
