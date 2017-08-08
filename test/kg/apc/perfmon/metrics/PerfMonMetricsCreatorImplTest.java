@@ -24,7 +24,7 @@ public class PerfMonMetricsCreatorImplTest extends TestCase {
         SigarProxy sigarProxy = SigarProxyCache.newInstance(new Sigar(), 500);
         MetricParamsSigar metricParamsSigar = MetricParamsSigar.createFromString(metricParams, sigarProxy);
         Class expResult = CPUTotalMetric.class;
-        AbstractPerfMonMetric result = getter.getMetricProvider(metricType, metricParamsSigar, sigarProxy);
+        AbstractPerfMonMetric result = getter.getMetricProvider(metricType, metricParamsSigar, sigarProxy, false);
         assertEquals(expResult, result.getClass());
     }
 
@@ -40,7 +40,7 @@ public class PerfMonMetricsCreatorImplTest extends TestCase {
         SigarProxy sigarProxy = SigarProxyCache.newInstance(new Sigar(), 500);
         MetricParamsSigar metricParamsSigar = MetricParamsSigar.createFromString(metricParams, sigarProxy);
         try {
-            AbstractPerfMonMetric result = getter.getMetricProvider(metricType, metricParamsSigar, sigarProxy);
+            AbstractPerfMonMetric result = getter.getMetricProvider(metricType, metricParamsSigar, sigarProxy, false);
         } catch (Throwable e) {
             catched = e;
         }

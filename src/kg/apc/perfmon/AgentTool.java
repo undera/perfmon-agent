@@ -60,6 +60,9 @@ public class AgentTool extends AbstractCMDTool {
             } else if (nextArg.equals("--agent-version")) {
                 args.remove();
                 worker.logVersion();
+            } else if (nextArg.equalsIgnoreCase("--no-exec")) {
+                args.remove();
+                worker.setNoExec(true);
             } else {
                 throw new UnsupportedOperationException("Unrecognized option: " + nextArg);
             }

@@ -9,9 +9,13 @@ public class PerfMonMetricsCreatorImpl implements PerfMonMetricsCreator {
 
     private static final Logger log = LoggingManager.getLoggerForClass();
 
-    public AbstractPerfMonMetric getMetricProvider(String metricType, MetricParamsSigar metricParams, SigarProxy sigarProxy) {
+    public AbstractPerfMonMetric getMetricProvider(String metricType, MetricParamsSigar metricParams, SigarProxy sigarProxy, boolean isNoExec) {
         AbstractPerfMonMetric metric;
-        if (metricType.equalsIgnoreCase("exec")) {
+        if (isNoExec) {
+            System.out.println(isNoExec);
+            //            throw new RuntimeException("Agent started in safe mode, 'exec' and 'tail' metrics are not available");
+        }
+            if (metricType.equalsIgnoreCase("exec")) {
             metric = new ExecMetric(metricParams);
         } else if (metricType.equalsIgnoreCase("tail")) {
             metric = new TailMetric(metricParams);

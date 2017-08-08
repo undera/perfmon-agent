@@ -134,7 +134,7 @@ public class PerfMonMetricGetter {
                     metricType = metricType.substring(0, metricType.indexOf(DVOETOCHIE)).trim();
                 }
 
-                metrics[n] = AbstractPerfMonMetric.createMetric(metricType, metricParams, sigarProxy);
+                metrics[n] = AbstractPerfMonMetric.createMetric(metricType, metricParams, sigarProxy, controller.isNoExec());
             }
         }
     }

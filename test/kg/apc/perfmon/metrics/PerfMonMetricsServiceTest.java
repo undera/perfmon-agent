@@ -20,7 +20,7 @@ public class PerfMonMetricsServiceTest extends TestCase {
         SigarProxy sigarProxy = SigarProxyCache.newInstance(new Sigar(), 500);
         MetricParamsSigar metricParams = MetricParamsSigar.createFromString("idle", sigarProxy);
 
-        AbstractPerfMonMetric metric = service.getMetric(metricType, metricParams, sigarProxy);
+        AbstractPerfMonMetric metric = service.getMetric(metricType, metricParams, sigarProxy, false);
 
         assertNotNull(metric);
         assertEquals(CPUTotalMetric.class, metric.getClass());

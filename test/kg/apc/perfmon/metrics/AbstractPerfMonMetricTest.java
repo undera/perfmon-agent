@@ -44,7 +44,7 @@ public class AbstractPerfMonMetricTest extends TestCase {
         String metricParams = "idle";
         SigarProxy sigarProxy = SigarProxyCache.newInstance(new Sigar(), 500);
         Class expResult = CPUTotalMetric.class;
-        AbstractPerfMonMetric result = AbstractPerfMonMetric.createMetric(metricType, metricParams, sigarProxy);
+        AbstractPerfMonMetric result = AbstractPerfMonMetric.createMetric(metricType, metricParams, sigarProxy, false);
         assertNotNull(result);
         assertEquals(expResult, result.getClass());
     }
