@@ -129,7 +129,7 @@ public class PerfMonMetricGetter {
             for (int n = 0; n < params.length; n++) {
                 String metricParams = "";
                 String metricType = params[n];
-                if (DVOETOCHIE.contains(metricType)) {
+                if (metricType.contains(DVOETOCHIE)) {
                     metricParams = metricType.substring(metricType.indexOf(DVOETOCHIE) + 1).trim();
                     metricType = metricType.substring(0, metricType.indexOf(DVOETOCHIE)).trim();
                 }
