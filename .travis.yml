@@ -1,3 +1,7 @@
+addons:
+  hosts:
+    - myshorthost
+  hostname: myshorthost
 language: java
 jdk:
   - openjdk6

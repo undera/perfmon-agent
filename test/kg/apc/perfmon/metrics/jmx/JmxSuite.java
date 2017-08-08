@@ -25,7 +25,7 @@ public class JmxSuite extends TestCase {
         suite.addTest(GCDataProviderTest.suite());
         suite.addTest(AbstractJMXDataProviderTest.suite());
         suite.addTest(ClassesDataProviderTest.suite());
-//        suite.addTest(JMXConnectorHelperTest.suite());
+        suite.addTest(JMXConnectorHelperTest.suite());
         return suite;
     }
 
