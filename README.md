@@ -297,7 +297,10 @@ Additional
 
 ## Custom Metrics 
 If you haven't found appropriate metric in above lists,
-you can set up collecting any value with custom metrics.
+you can set up collecting any value with custom metrics. 
+
+Security note: Both `exec` and `tail` metric types can be turned off by providing `--no-exec` flag to
+server agent. This enables more secure service with only strict KPI fetching.
 
 ### EXEC 
 This metric type interprets parameter string as path to process to start and
