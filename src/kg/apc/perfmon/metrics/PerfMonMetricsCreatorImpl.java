@@ -12,7 +12,8 @@ public class PerfMonMetricsCreatorImpl implements PerfMonMetricsCreator {
     public AbstractPerfMonMetric getMetricProvider(String metricType, MetricParamsSigar metricParams, SigarProxy sigarProxy, boolean isNoExec) {
         AbstractPerfMonMetric metric;
         if (isNoExec && (metricType.equalsIgnoreCase("exec") || metricType.equalsIgnoreCase("tail"))) {
-            throw new RuntimeException("Agent started in safe mode, 'exec' and 'tail' metrics are not available");
+            log.warn("Agent started in safe mode, 'exec' and 'tail' metrics are not available");
+            metric = new InvalidPerfMonMetric();
         } else if (metricType.equalsIgnoreCase("exec")) {
             metric = new ExecMetric(metricParams);
         } else if (metricType.equalsIgnoreCase("tail")) {
