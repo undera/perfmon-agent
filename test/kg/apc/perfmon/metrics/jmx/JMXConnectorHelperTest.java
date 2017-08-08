@@ -44,16 +44,16 @@ public class JMXConnectorHelperTest extends TestCase {
 //        }
 //    }
 
-    public void testGetServerConnection2() {
-        System.out.println("getServerConnection");
-        String url = "somehost";
-        String user = "someuser";
-        String pwd = "somepass";
-        JMXConnectorHelper instance = new JMXConnectorHelper();
-        try {
-            MBeanServerConnection result = instance.getServerConnection(url, user, pwd);
-            fail();
-        } catch (RuntimeException e) {
-        }
-    }
+//    public void testGetServerConnection2() {
+//        System.out.println("getServerConnection");
+//        String url = "somehost";
+//        String user = "someuser";
+//        String pwd = "somepass";
+//        JMXConnectorHelper instance = new JMXConnectorHelper();
+//        try {
+//            MBeanServerConnection result = instance.getServerConnection(url, user, pwd);
+//            fail();
+//        } catch (RuntimeException e) {
+//        }
+//    }
 }
