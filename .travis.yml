@@ -5,5 +5,5 @@ addons:
 language: java
 jdk:
   - openjdk6
-install: "mvn clean -B"
+install: "mvn clean -B -X"
 
