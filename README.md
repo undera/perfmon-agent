@@ -11,7 +11,7 @@
 
 _You do not need any root/admin privilege_. You can just unzip the the ServerAgent-X.X.X.zip somewhere on the server. Then launch the agent using `startAgent.sh` script on Unix, or `startAgent.bat` script on Windows.
 
-The agent is written in Java, you will need JRE 1.5+ to run it. 
+The agent is written in Java, you will need JRE 1.5 or later to run it. 
 Note you can create yourself the agent package which includes its own JRE 
 so you don't have to install java on the server (We tested it on windows platform).
 To do this, just create a JRE folder in the agent folder and copy one installed 
