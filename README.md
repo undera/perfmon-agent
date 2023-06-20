@@ -5,7 +5,7 @@ Agent application to access system metrics on remote machines.
 
 > :warning: **It's very out-of-date for modern technology**
 > 
-> Since it relies on [SIGAR](https://github.com/hyperic/sigar) library to gather metrics, with that library is last updated in 2010, it won't work on many modern systems.
+> Since it relies on [SIGAR](https://github.com/hyperic/sigar) library to gather metrics, with that library last updated in 2010, ServerAgent won't work on many modern systems.
 
 ## Download
 
